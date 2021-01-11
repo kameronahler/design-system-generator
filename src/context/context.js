@@ -1,11 +1,10 @@
 import React, { useReducer } from 'react'
-import Typography from '../Typography/Typography'
 
 const initialContext = {
   typographyElements: ['h1'],
 }
 
-const context_reducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case CONTEXT_ACTIONS.TYPOGRAPHY_ELEMENTS_UPDATE:
       return action.payload
@@ -20,14 +19,12 @@ export const CONTEXT_ACTIONS = {
 
 export const Context = React.createContext()
 
-export default function App() {
-  const [state, dispatch] = useReducer(context_reducer, initialContext)
+export const GlobalContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialContext)
 
   return (
-    <>
-      <Context.Provider value={{ state, dispatch }}>
-        <Typography />
-      </Context.Provider>
-    </>
+    <GlobalContext.Provider value={{ state, dispatch }}>
+      {children}
+    </GlobalContext.Provider>
   )
 }
