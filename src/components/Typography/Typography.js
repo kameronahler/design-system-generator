@@ -1,4 +1,5 @@
-import TypographyElements from '../TypographyElements/TypographyElements'
+import TypographyElementsDisplay from '../TypographyElementsDisplay/TypographyElementsDisplay'
+import TypographyElementCheckboxes from '../TypographyElementCheckboxes/TypographyElementCheckboxes'
 
 export default function Typography() {
   return (
@@ -6,7 +7,8 @@ export default function Typography() {
       <header>
         <h2>Typography</h2>
       </header>
-      <TypographyElements />
+      <TypographyElementCheckboxes />
+      <TypographyElementsDisplay />
     </section>
   )
 }

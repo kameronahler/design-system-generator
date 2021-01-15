@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Context } from '../App/App'
-import TypographyElementCheckboxes from '../TypographyElementCheckboxes/TypographyElementCheckboxes'
 
-export default function TypographyElements() {
+export default function TypographyElementsDisplay() {
   const global = useContext(Context)
 
   let elementsToDisplay = global.state.typographyElements.map((el, i) => {
@@ -42,10 +41,5 @@ export default function TypographyElements() {
     handleChecks()
   }, [])
 
-  return (
-    <>
-      <TypographyElementCheckboxes />
-      <div>{elementsToDisplay}</div>
-    </>
-  )
+  return <div>{elementsToDisplay}</div>
 }
