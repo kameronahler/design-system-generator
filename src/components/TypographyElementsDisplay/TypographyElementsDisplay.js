@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../App/App'
 
 export default function TypographyElementsDisplay() {
@@ -24,22 +24,6 @@ export default function TypographyElementsDisplay() {
         return
     }
   })
-
-  const handleChecks = () => {
-    const controls = document.querySelectorAll(
-      '[data-typography-element-control]'
-    )
-
-    controls.forEach(control => {
-      if (global.state.typographyElements.includes(control.value)) {
-        control.checked = true
-      }
-    })
-  }
-
-  useEffect(() => {
-    handleChecks()
-  }, [])
 
   return <div>{elementsToDisplay}</div>
 }

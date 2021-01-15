@@ -31,7 +31,7 @@ export default function TypographyControlsCheckbox({ id, value, labelText }) {
     <div>
       <label htmlFor={id}>{labelText}</label>
       <input
-        data-typography-element-control='true'
+        checked={global.state.typographyElements.includes(value) ? true : false}
         id={id}
         onChange={handleCheckChange}
         type='checkbox'
