@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-import Typography from '../TypographyElements/TypographyElements'
+import Typography from '../Typography/Typography'
 
 const initialContext = {
   typographyElements: ['h1'],

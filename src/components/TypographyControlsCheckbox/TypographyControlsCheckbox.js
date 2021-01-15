@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { CONTEXT_ACTIONS, Context } from '../App/App'
 
-export default function TypographyElementCheckbox({ id, value, labelText }) {
+export default function TypographyControlsCheckbox({ id, value, labelText }) {
   const global = useContext(Context)
 
   const handleCheckChange = e => {

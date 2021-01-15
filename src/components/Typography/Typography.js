@@ -1,5 +1,6 @@
+import React from 'react'
 import TypographyElementsDisplay from '../TypographyElementsDisplay/TypographyElementsDisplay'
-import TypographyElementCheckboxes from '../TypographyElementCheckboxes/TypographyElementCheckboxes'
+import TypographyControls from '../TypographyControls/TypographyControls'
 
 export default function Typography() {
   return (
@@ -7,7 +8,7 @@ export default function Typography() {
       <header>
         <h2>Typography</h2>
       </header>
-      <TypographyElementCheckboxes />
+      <TypographyControls />
       <TypographyElementsDisplay />
     </section>
   )

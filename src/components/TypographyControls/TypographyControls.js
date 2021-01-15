@@ -1,35 +1,40 @@
 import React from 'react'
-import TypographyElementCheckbox from '../TypographyElementCheckbox/TypographyElementCheckbox'
+import TypographyControlsCheckbox from '../TypographyControlsCheckbox/TypographyControlsCheckbox'
 
-export default function TypographyElementCheckboxes() {
+export default function TypographyControls() {
   return (
     <div>
-      <TypographyElementCheckbox
+      <TypographyControlsCheckbox
+        id={'heading-1'}
+        labelText={'Heading 1'}
+        value={'h1'}
+      />
+      <TypographyControlsCheckbox
         id={'heading-2'}
         labelText={'Heading 2'}
         value={'h2'}
       />
-      <TypographyElementCheckbox
+      <TypographyControlsCheckbox
         id={'heading-3'}
         labelText={'Heading 3'}
         value={'h3'}
       />
-      <TypographyElementCheckbox
+      <TypographyControlsCheckbox
         id={'heading-4'}
         labelText={'Heading 4'}
         value={'h4'}
       />
-      <TypographyElementCheckbox
+      <TypographyControlsCheckbox
         id={'heading-5'}
         labelText={'Heading 5'}
         value={'h5'}
       />
-      <TypographyElementCheckbox
+      <TypographyControlsCheckbox
         id={'heading-6'}
         labelText={'Heading 6'}
         value={'h6'}
       />
-      <TypographyElementCheckbox
+      <TypographyControlsCheckbox
         id={'paragraph'}
         labelText={'Paragraph'}
         value={'p'}
