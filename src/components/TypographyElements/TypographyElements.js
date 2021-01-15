@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import { Context } from '../App/App'
-import TypographyElementCheckbox from '../TypographyElementCheckbox/TypographyElementCheckbox'
+import TypographyElementCheckboxes from '../TypographyElementCheckboxes/TypographyElementCheckboxes'
 
-export default function Button() {
+export default function TypographyElements() {
   const global = useContext(Context)
 
   let elementsToDisplay = global.state.typographyElements.map((el, i) => {
@@ -44,43 +44,7 @@ export default function Button() {
 
   return (
     <>
-      <div>
-        <TypographyElementCheckbox
-          id={'heading-1'}
-          labelText={'Heading 1'}
-          value={'h1'}
-        />
-        <TypographyElementCheckbox
-          id={'heading-2'}
-          labelText={'Heading 2'}
-          value={'h2'}
-        />
-        <TypographyElementCheckbox
-          id={'heading-3'}
-          labelText={'Heading 3'}
-          value={'h3'}
-        />
-        <TypographyElementCheckbox
-          id={'heading-4'}
-          labelText={'Heading 4'}
-          value={'h4'}
-        />
-        <TypographyElementCheckbox
-          id={'heading-5'}
-          labelText={'Heading 5'}
-          value={'h5'}
-        />
-        <TypographyElementCheckbox
-          id={'heading-6'}
-          labelText={'Heading 6'}
-          value={'h6'}
-        />
-        <TypographyElementCheckbox
-          id={'paragraph'}
-          labelText={'Paragraph'}
-          value={'p'}
-        />
-      </div>
+      <TypographyElementCheckboxes />
       <div>{elementsToDisplay}</div>
     </>
   )
