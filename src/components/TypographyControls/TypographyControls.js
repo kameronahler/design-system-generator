@@ -12,18 +12,21 @@ export default function TypographyControls() {
     { id: 'paragraph', labelText: 'Paragraph', value: 'p' },
   ]
 
+  const preventFormSubmit = () => e.preventDefault()
+
   return (
-    <div>
+    <form onSubmit={preventFormSubmit}>
       {TYPOGRAPHY_ELEMENT_CHOICES.map(el => {
         return (
           <TypographyControlsCheckbox
-            key={el.id}
             id={el.id}
+            key={el.id}
             labelText={el.labelText}
+            name='typography-controls'
             value={el.value}
           />
         )
       })}
-    </div>
+    </form>
   )
 }
