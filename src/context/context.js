@@ -1,9 +1,12 @@
+// packages
 import React, { useReducer } from 'react'
 
+// initial default global context
 const initialContext = {
-  typographyElements: ['h1'],
+  typographyElements: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
 }
 
+// global context dispatch reducer
 const reducer = (state, action) => {
   switch (action.type) {
     case CONTEXT_ACTIONS.TYPOGRAPHY_ELEMENTS_UPDATE:

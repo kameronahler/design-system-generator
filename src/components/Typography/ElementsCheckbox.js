@@ -1,4 +1,7 @@
+// packages
 import React, { useContext } from 'react'
+
+// components
 import { CONTEXT_ACTIONS, Context } from '../App/App'
 
 export default function ElementsCheckbox({ id, value, labelText }) {

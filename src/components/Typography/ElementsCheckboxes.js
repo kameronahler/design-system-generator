@@ -1,4 +1,7 @@
+// packages
 import React from 'react'
+
+// components
 import ElementsCheckbox from './ElementsCheckbox'
 
 export default function ElementsCheckboxes() {

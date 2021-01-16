@@ -1,3 +1,11 @@
+/* -----------------------------
+global scss
+-------------------------------*/
+// variables
 @import './scss/variables';
-@import './scss/typography';
+
+// npm
 @import '../node_modules/normalize.css/normalize.css';
+
+// typography
+@import './scss/typography';

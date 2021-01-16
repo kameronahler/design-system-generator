@@ -1,6 +1,8 @@
+// packages
 import React, { useContext } from 'react'
-import { Context } from '../App/App'
 
+// components
+import { Context } from '../App/App'
 import './ElementsDisplay.scss'
 
 export default function ElementsDisplay() {

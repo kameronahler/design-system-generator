@@ -1,6 +1,8 @@
+// packages
 import React, { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
 
+// static
 const GOOGLE_API = process.env.GOOGLE_DEV_API
 const GOOGLE_FONTS_URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${GOOGLE_API}`
 const GOOGLE_FONTS_CSS_URL = 'https://fonts.googleapis.com/css2?'

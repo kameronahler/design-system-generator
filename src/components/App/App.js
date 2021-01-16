@@ -1,4 +1,7 @@
+// packages
 import React, { useReducer } from 'react'
+
+// components
 import Typography from '../Typography/Typography'
 
 const initialContext = {

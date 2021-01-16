@@ -1,4 +1,7 @@
+// packages
 import React from 'react'
+
+// components
 import ElementsCheckboxes from './ElementsCheckboxes'
 import Fonts from './Fonts'
 import ElementsDisplay from './ElementsDisplay'
