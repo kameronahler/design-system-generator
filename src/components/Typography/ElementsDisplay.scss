@@ -1,0 +1,8 @@
+.typography-elements-display {
+  background-color: #eee;
+  padding: 1rem;
+
+  &__element {
+    font-family: var(--font-family-typography);
+  }
+}

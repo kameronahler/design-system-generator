@@ -1,7 +1,7 @@
 import React from 'react'
-import TypographyControlsCheckbox from '../TypographyControlsCheckbox/TypographyControlsCheckbox'
+import ElementsCheckbox from './ElementsCheckbox'
 
-export default function TypographyControls() {
+export default function ElementsCheckboxes() {
   const TYPOGRAPHY_ELEMENT_CHOICES = [
     { id: 'heading-1', labelText: 'Heading 1', value: 'h1' },
     { id: 'heading-2', labelText: 'Heading 2', value: 'h2' },
@@ -15,18 +15,23 @@ export default function TypographyControls() {
   const preventFormSubmit = () => e.preventDefault()
 
   return (
-    <form onSubmit={preventFormSubmit}>
-      {TYPOGRAPHY_ELEMENT_CHOICES.map(el => {
-        return (
-          <TypographyControlsCheckbox
-            id={el.id}
-            key={el.id}
-            labelText={el.labelText}
-            name='typography-controls'
-            value={el.value}
-          />
-        )
-      })}
-    </form>
+    <section>
+      <header>
+        <h3>Select elements</h3>
+      </header>
+      <form onSubmit={preventFormSubmit}>
+        {TYPOGRAPHY_ELEMENT_CHOICES.map(el => {
+          return (
+            <ElementsCheckbox
+              id={el.id}
+              key={el.id}
+              labelText={el.labelText}
+              name='typography-controls'
+              value={el.value}
+            />
+          )
+        })}
+      </form>
+    </section>
   )
 }

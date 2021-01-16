@@ -5,7 +5,7 @@ const GOOGLE_API = process.env.GOOGLE_DEV_API
 const GOOGLE_FONTS_URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${GOOGLE_API}`
 const GOOGLE_FONTS_CSS_URL = 'https://fonts.googleapis.com/css2?'
 
-export default function TypographyFonts() {
+export default function Fonts() {
   const [fontData, setFontData] = useState([])
   const [currentFont, setCurrentFont] = useState(null)
 
@@ -38,7 +38,10 @@ export default function TypographyFonts() {
     link.setAttribute('href', href)
 
     document.head.appendChild(link)
-    document.body.style.fontFamily = `${currentFont.family}, sans-serif`
+    document.documentElement.style.setProperty(
+      '--font-family-typography',
+      family + ',sans-serif'
+    )
   }
 
   useEffect(() => {
@@ -49,19 +52,24 @@ export default function TypographyFonts() {
   }, [currentFont])
 
   return (
-    <form onSubmit={() => e.preventDefault()}>
-      <select onChange={handleSelectChange}>
-        <option default>
-          {fontData.length > 0 ? 'Select a font' : 'Loading...'}
-        </option>
-        {fontData.map((el, i) => {
-          return (
-            <option key={i} data-src={el.files.regular} value={el.family}>
-              {el.family}
-            </option>
-          )
-        })}
-      </select>
-    </form>
+    <section>
+      <header>
+        <h3>Choose font family</h3>
+      </header>
+      <form onSubmit={() => e.preventDefault()}>
+        <select onChange={handleSelectChange}>
+          <option default>
+            {fontData.length > 0 ? 'Select a font' : 'Loading...'}
+          </option>
+          {fontData.map((el, i) => {
+            return (
+              <option key={i} data-src={el.files.regular} value={el.family}>
+                {el.family}
+              </option>
+            )
+          })}
+        </select>
+      </form>
+    </section>
   )
 }
