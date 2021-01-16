@@ -25,5 +25,5 @@ export default function TypographyElementsDisplay() {
     }
   })
 
-  return <div>{elementsToDisplay}</div>
+  return <>{elementsToDisplay}</>
 }
