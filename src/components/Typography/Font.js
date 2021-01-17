@@ -4,6 +4,7 @@ import axios from 'axios'
 
 // components
 import { CONTEXT_ACTIONS, Context } from '../App/App'
+import FontWeightRadio from './FontWeightRadio'
 
 // static
 const GOOGLE_API = process.env.GOOGLE_DEV_API
@@ -15,8 +16,6 @@ export default function Fonts() {
   const global = useContext(Context)
   const [fontData, setFontData] = useState([])
   const [fontCategory, setFontCategory] = useState('all')
-
-  console.log(fontData)
 
   // get available google fonts via api, but memoize it
   useMemo(async () => {
@@ -59,7 +58,7 @@ export default function Fonts() {
   const updateFontCSSVar = () => {
     document.documentElement.style.setProperty(
       '--font-family-typography',
-      `"${global.state.typographyFont.family}", sans-serif`
+      `"${global.state.typographyFont.family}", handwriting`
     )
   }
 
@@ -77,78 +76,41 @@ export default function Fonts() {
       </header>
       <form onSubmit={() => e.preventDefault()}>
         <section>
-          <div>
-            <label htmlFor='typography-font-category-all'>All</label>
-            <input
-              checked={fontCategory ? true : false}
-              id='typography-font-category-all'
-              name='typography-font-category'
-              onChange={e => setFontCategory(e.currentTarget.value)}
-              type='radio'
-              value='all'
-            />
-          </div>
-          <div>
-            <label htmlFor='typography-font-category-serif'>Serif</label>
-            <input
-              checked={fontCategory ? true : false}
-              id='typography-font-category-serif'
-              name='typography-font-category'
-              onChange={e => setFontCategory(e.currentTarget.value)}
-              type='radio'
-              value='serif'
-            />
-          </div>
-          <div>
-            <label htmlFor='typography-font-category-sans-serif'>
-              Sans Serif
-            </label>
-            <input
-              checked={fontCategory ? true : false}
-              id='typography-font-category-sans-serif'
-              name='typography-font-category'
-              onChange={e => setFontCategory(e.currentTarget.value)}
-              type='radio'
-              value='sans-serif'
-            />
-          </div>
-          <div>
-            <label htmlFor='typography-font-category-display'>Display</label>
-            <input
-              checked={fontCategory ? true : false}
-              id='typography-font-category-display'
-              name='typography-font-category'
-              onChange={e => setFontCategory(e.currentTarget.value)}
-              type='radio'
-              value='display'
-            />
-          </div>
-          <div>
-            <label htmlFor='typography-font-category-handwriting'>
-              Handwriting
-            </label>
-            <input
-              checked={fontCategory ? true : false}
-              id='typography-font-handwriting'
-              name='typography-font-category'
-              onChange={e => setFontCategory(e.currentTarget.value)}
-              type='radio'
-              value='handwriting'
-            />
-          </div>
-          <div>
-            <label htmlFor='typography-font-category-monospace'>
-              Monospace
-            </label>
-            <input
-              checked={fontCategory ? true : false}
-              id='typography-font-category-monospace'
-              name='typography-font-category'
-              onChange={e => setFontCategory(e.currentTarget.value)}
-              type='radio'
-              value='monospace'
-            />
-          </div>
+          <FontWeightRadio
+            id={'typography-font-category-serif'}
+            labelText={'Serif'}
+            fontCategory={fontCategory}
+            onchange={e => setFontCategory(e.currentTarget.value)}
+            value={'serif'}
+          />
+          <FontWeightRadio
+            id={'typography-font-category-sans-serif'}
+            labelText={'Sans Serif'}
+            fontCategory={fontCategory}
+            onchange={e => setFontCategory(e.currentTarget.value)}
+            value={'sans-serif'}
+          />
+          <FontWeightRadio
+            id={'typography-font-category-handwriting'}
+            labelText={'Handwriting'}
+            fontCategory={fontCategory}
+            onchange={e => setFontCategory(e.currentTarget.value)}
+            value={'handwriting'}
+          />
+          <FontWeightRadio
+            id={'typography-font-category-display'}
+            labelText={'Display'}
+            fontCategory={fontCategory}
+            onchange={e => setFontCategory(e.currentTarget.value)}
+            value={'display'}
+          />
+          <FontWeightRadio
+            id={'typography-font-category-monospace'}
+            labelText={'Monospace'}
+            fontCategory={fontCategory}
+            onchange={e => setFontCategory(e.currentTarget.value)}
+            value={'monospace'}
+          />
         </section>
         <select onChange={handleSelectChange}>
           <option default>
