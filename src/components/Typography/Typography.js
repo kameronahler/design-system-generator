@@ -3,7 +3,7 @@ import React from 'react'
 
 // components
 import ElementsCheckboxes from './ElementsCheckboxes'
-import Fonts from './Fonts'
+import Font from './Font'
 import ElementsDisplay from './ElementsDisplay'
 
 export default function Typography() {
@@ -13,7 +13,7 @@ export default function Typography() {
         <h2>Typography</h2>
       </header>
       <ElementsCheckboxes />
-      <Fonts />
+      <Font />
       <ElementsDisplay />
     </section>
   )
