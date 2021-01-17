@@ -10,6 +10,13 @@ import FontWeightRadio from './FontWeightRadio'
 const GOOGLE_API = process.env.GOOGLE_DEV_API
 const GOOGLE_FONTS_URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${GOOGLE_API}`
 const GOOGLE_FONTS_CSS_URL = 'https://fonts.googleapis.com/css2?'
+const GOOGLE_FONTS_CATEGORIES = [
+  { label: 'Serif', category: 'serif' },
+  { label: 'Sans Serif', category: 'sans-serif' },
+  { label: 'Handwriting', category: 'handwriting' },
+  { label: 'Display', category: 'display' },
+  { label: 'Monospace', category: 'monospace' },
+]
 
 export default function Fonts() {
   // state
@@ -28,7 +35,7 @@ export default function Fonts() {
   }, [])
 
   // user changes font select input
-  const handleSelectChange = e => {
+  const handleFontFamilyChange = e => {
     const currentOption = e.currentTarget.querySelector('option:checked')
     const newState = {
       ...global.state,
@@ -43,7 +50,12 @@ export default function Fonts() {
     })
   }
 
-  // useEffect
+  // user changes font category radio
+  const handleFontCategoryChange = e => {
+    setFontCategory(e.currentTarget.value)
+  }
+
+  // useEffects
   const addFontLinkToHead = () => {
     const link = document.createElement('link')
     const href = `${GOOGLE_FONTS_CSS_URL}family=${global.state.typographyFont.family.replace(
@@ -75,55 +87,34 @@ export default function Fonts() {
         <h3>Choose font family</h3>
       </header>
       <form onSubmit={() => e.preventDefault()}>
-        <section>
-          <FontWeightRadio
-            id={'typography-font-category-serif'}
-            labelText={'Serif'}
-            fontCategory={fontCategory}
-            onchange={e => setFontCategory(e.currentTarget.value)}
-            value={'serif'}
-          />
-          <FontWeightRadio
-            id={'typography-font-category-sans-serif'}
-            labelText={'Sans Serif'}
-            fontCategory={fontCategory}
-            onchange={e => setFontCategory(e.currentTarget.value)}
-            value={'sans-serif'}
-          />
-          <FontWeightRadio
-            id={'typography-font-category-handwriting'}
-            labelText={'Handwriting'}
-            fontCategory={fontCategory}
-            onchange={e => setFontCategory(e.currentTarget.value)}
-            value={'handwriting'}
-          />
-          <FontWeightRadio
-            id={'typography-font-category-display'}
-            labelText={'Display'}
-            fontCategory={fontCategory}
-            onchange={e => setFontCategory(e.currentTarget.value)}
-            value={'display'}
-          />
-          <FontWeightRadio
-            id={'typography-font-category-monospace'}
-            labelText={'Monospace'}
-            fontCategory={fontCategory}
-            onchange={e => setFontCategory(e.currentTarget.value)}
-            value={'monospace'}
-          />
-        </section>
-        <select onChange={handleSelectChange}>
-          <option default>
-            {fontData.length > 0 ? 'Select a font' : 'Loading...'}
-          </option>
-          {fontData.map((el, i) => {
+        <div>
+          {GOOGLE_FONTS_CATEGORIES.map(cat => {
             return (
-              <option key={i} data-src={el.files.regular} value={el.family}>
-                {el.family}
-              </option>
+              <FontWeightRadio
+                fontCategory={fontCategory}
+                handler={handleFontCategoryChange}
+                id={`typography-font-category-${cat.category}`}
+                key={cat.category}
+                labelText={cat.label}
+                value={cat.category}
+              />
             )
           })}
-        </select>
+        </div>
+        <div>
+          <select onChange={handleFontFamilyChange}>
+            <option default>
+              {fontData.length > 0 ? 'Select a font' : 'Loading...'}
+            </option>
+            {fontData.map((el, i) => {
+              return (
+                <option key={i} data-src={el.files.regular} value={el.family}>
+                  {el.family}
+                </option>
+              )
+            })}
+          </select>
+        </div>
       </form>
     </section>
   )

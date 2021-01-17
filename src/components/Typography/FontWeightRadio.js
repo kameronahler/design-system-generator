@@ -2,10 +2,10 @@
 import React from 'react'
 
 export default function FontWeightRadio({
+  fontCategory,
+  handler,
   id,
   labelText,
-  fontCategory,
-  onchange,
   value,
 }) {
   // state
@@ -16,7 +16,7 @@ export default function FontWeightRadio({
         checked={fontCategory === value ? true : false}
         id={id}
         name='typography-font-category'
-        onChange={onchange}
+        onChange={handler}
         type='radio'
         value={value}
       />
