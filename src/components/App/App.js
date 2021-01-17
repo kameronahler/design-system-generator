@@ -7,6 +7,17 @@ import Typography from '../Typography/Typography'
 
 // context private
 const _initialContext = {
+  typographyPossibleElements: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
+  typographyActiveElements: [
+    {
+      element: 'p',
+      color: '#333',
+      fontFamily: 'sans-serif',
+      fontSize: '16px',
+      lineHeight: '1.5',
+      margin: '0',
+    },
+  ],
   typographyElements: ['h1'],
   typographyFont: null,
 }
