@@ -22,7 +22,7 @@ export default function Fonts() {
   // state
   const global = useContext(Context)
   const [fontData, setFontData] = useState([])
-  const [fontCategory, setFontCategory] = useState('all')
+  const [fontCategory, setFontCategory] = useState('serif')
 
   // get available google fonts via api, but memoize it
   useMemo(async () => {
@@ -107,11 +107,13 @@ export default function Fonts() {
               {fontData.length > 0 ? 'Select a font' : 'Loading...'}
             </option>
             {fontData.map((el, i) => {
-              return (
-                <option key={i} data-src={el.files.regular} value={el.family}>
-                  {el.family}
-                </option>
-              )
+              if (el.category === fontCategory) {
+                return (
+                  <option key={i} data-src={el.files.regular} value={el.family}>
+                    {el.family}
+                  </option>
+                )
+              }
             })}
           </select>
         </div>
