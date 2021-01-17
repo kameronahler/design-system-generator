@@ -2,33 +2,42 @@
 import React, { useReducer } from 'react'
 
 // components
+import ContextDisplay from './ContextDisplay'
 import Typography from '../Typography/Typography'
 
-const initialContext = {
+// context private
+const _initialContext = {
   typographyElements: ['h1'],
+  typographyFont: null,
 }
 
-const context_reducer = (state, action) => {
+const _context_reducer = (state, action) => {
   switch (action.type) {
     case CONTEXT_ACTIONS.TYPOGRAPHY_ELEMENTS_UPDATE:
+      return action.payload
+    case CONTEXT_ACTIONS.TYPOGRAPHY_FONT_UPDATE:
       return action.payload
     default:
       return
   }
 }
 
-export const CONTEXT_ACTIONS = {
-  TYPOGRAPHY_ELEMENTS_UPDATE: 'typography_elements_update',
-}
-
+// context export
 export const Context = React.createContext()
 
+export const CONTEXT_ACTIONS = {
+  TYPOGRAPHY_ELEMENTS_UPDATE: 'typography_elements_update',
+  TYPOGRAPHY_FONT_UPDATE: 'typography_font_update',
+}
+
+// app export
 export default function App() {
-  const [state, dispatch] = useReducer(context_reducer, initialContext)
+  const [state, dispatch] = useReducer(_context_reducer, _initialContext)
 
   return (
     <>
       <Context.Provider value={{ state, dispatch }}>
+        <ContextDisplay />
         <Typography />
       </Context.Provider>
     </>

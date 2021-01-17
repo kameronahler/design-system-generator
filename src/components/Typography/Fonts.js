@@ -1,6 +1,9 @@
 // packages
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useContext } from 'react'
 import axios from 'axios'
+
+// components
+import { CONTEXT_ACTIONS, Context } from '../App/App'
 
 // static
 const GOOGLE_API = process.env.GOOGLE_DEV_API
@@ -8,10 +11,11 @@ const GOOGLE_FONTS_URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${
 const GOOGLE_FONTS_CSS_URL = 'https://fonts.googleapis.com/css2?'
 
 export default function Fonts() {
+  // state
+  const global = useContext(Context)
   const [fontData, setFontData] = useState([])
-  const [currentFont, setCurrentFont] = useState(null)
 
-  // memoized without dependency
+  // get available google fonts via, but memoize it
   const memoGoogleFontsAPI = useMemo(async () => {
     try {
       const res = await axios.get(GOOGLE_FONTS_URL)
@@ -21,37 +25,47 @@ export default function Fonts() {
     }
   }, [])
 
+  // user changes font select input
   const handleSelectChange = e => {
     const currentOption = e.currentTarget.querySelector('option:checked')
     const newState = {
-      family: e.currentTarget.value,
-      src: currentOption.dataset.src,
+      ...global.state,
+      typographyFont: {
+        family: e.currentTarget.value,
+        src: currentOption.dataset.src,
+      },
     }
-
-    setCurrentFont(newState)
+    global.dispatch({
+      type: CONTEXT_ACTIONS.TYPOGRAPHY_FONT_UPDATE,
+      payload: newState,
+    })
   }
 
-  const applyCurrentFontFamily = () => {
+  // useEffect
+  const addFontLinkToHead = () => {
     const link = document.createElement('link')
-    const family = currentFont.family.replace(/\s/, '+')
-    const href = GOOGLE_FONTS_CSS_URL.concat('family=', family, '&')
-    console.log(href)
+    const href = `${GOOGLE_FONTS_CSS_URL}family=${global.state.typographyFont.family.replace(
+      /\s/,
+      '+'
+    )}&`
     link.setAttribute('rel', 'stylesheet')
     link.setAttribute('href', href)
-
     document.head.appendChild(link)
+  }
+
+  const updateFontCSSVar = () => {
     document.documentElement.style.setProperty(
       '--font-family-typography',
-      family + ',sans-serif'
+      `"${global.state.typographyFont.family}", sans-serif`
     )
   }
 
   useEffect(() => {
-    if (currentFont) {
-      applyCurrentFontFamily()
+    if (global.state.typographyFont) {
+      addFontLinkToHead()
+      updateFontCSSVar()
     }
-    GOOGLE_FONTS_CSS_URL
-  }, [currentFont])
+  }, [global.state.typographyFont])
 
   return (
     <section>
