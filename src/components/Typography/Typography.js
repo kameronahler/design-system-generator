@@ -4,7 +4,7 @@ import React from 'react'
 // components
 // import ElementsCheckboxes from './ElementsCheckboxes'
 // import Font from './Font'
-import ElementsDisplayNew from './ElementsDisplayNew'
+import ElementsDisplay from './ElementsDisplay'
 
 export default function Typography() {
   return (
@@ -12,7 +12,7 @@ export default function Typography() {
       <header>
         <h2>Typography</h2>
       </header>
-      <ElementsDisplayNew />
+      <ElementsDisplay />
     </section>
   )
 }

@@ -34,8 +34,6 @@ const _initialContext = {
       text: 'Lorem ipsum dolor sit amet',
     },
   ],
-  typographyElements: ['h1'],
-  typographyFont: null,
 }
 
 const _context_reducer = (state, action) => {
