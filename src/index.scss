@@ -4,6 +4,9 @@ global scss
 // variables
 @import './scss/variables';
 
+// resets
+@import './scss/resets';
+
 // npm
 @import '../node_modules/normalize.css/normalize.css';
 

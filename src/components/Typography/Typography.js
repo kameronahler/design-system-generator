@@ -8,12 +8,10 @@ import ElementsDisplayNew from './ElementsDisplayNew'
 
 export default function Typography() {
   return (
-    <section>
+    <section style={{ marginLeft: '33vw' }}>
       <header>
         <h2>Typography</h2>
       </header>
-      {/* <ElementsCheckboxes />
-      <Font /> */}
       <ElementsDisplayNew />
     </section>
   )

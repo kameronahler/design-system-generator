@@ -9,14 +9,12 @@ export default function ElementsDisplayNew() {
 
   const jsxToDisplay = global.state.typographyActiveElements.map(entry => {
     return (
-      <div>
+      <div key={entry.element}>
         <pre>{entry.elementDisplay}</pre>
-        <entry.element key={entry.element} style={entry.style}>
-          {entry.text}
-        </entry.element>
+        <entry.element style={entry.style}>{entry.text}</entry.element>
       </div>
     )
   })
 
-  return <>{jsxToDisplay}</>
+  return <div>{jsxToDisplay}</div>
 }

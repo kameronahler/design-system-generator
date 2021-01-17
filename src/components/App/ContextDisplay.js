@@ -14,10 +14,14 @@ export default function ContextDisplay() {
         backgroundColor: '#333',
         color: 'white',
         fontSize: '12px',
+        height: '100vh',
+        left: '0',
         lineHeight: '1.5',
+        overflowY: 'auto',
         padding: '1rem',
-        position: 'sticky',
+        position: 'fixed',
         top: '0',
+        width: '33vw',
       }}
     >
       <pre style={{ margin: 'unset' }}>{globalFormatted}</pre>
