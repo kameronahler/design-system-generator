@@ -11,11 +11,27 @@ const _initialContext = {
   typographyActiveElements: [
     {
       element: 'p',
-      color: '#333',
-      fontFamily: 'sans-serif',
-      fontSize: '16px',
-      lineHeight: '1.5',
-      margin: '0',
+      elementDisplay: '<p>',
+      style: {
+        color: '#333',
+        fontFamily: 'sans-serif',
+        fontSize: '16px',
+        lineHeight: '1.5',
+        margin: '0',
+      },
+      text: 'Lorem ipsum dolor sit amet',
+    },
+    {
+      element: 'h1',
+      elementDisplay: '<h1>',
+      style: {
+        color: '#333',
+        fontFamily: 'sans-serif',
+        fontSize: '44px',
+        lineHeight: '1.2',
+        margin: '0',
+      },
+      text: 'Lorem ipsum dolor sit amet',
     },
   ],
   typographyElements: ['h1'],
