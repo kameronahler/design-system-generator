@@ -7,8 +7,8 @@ import Typography from '../Typography/Typography'
 
 // context private
 const _initialContext = {
-  typographyPossibleElements: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
-  typographyActiveElements: [
+  typographyElementsPossible: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
+  typographyElementsActive: [
     {
       element: 'p',
       style: {

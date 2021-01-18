@@ -5,10 +5,10 @@ import React, { useContext } from 'react'
 import { Context } from '../App/App'
 import ElementControl from './ElementControl'
 
-export default function ElementControls() {
+export default function ElementActiveControls() {
   const global = useContext(Context)
 
-  const jsxToDisplay = global.state.typographyActiveElements.map(entry => {
+  const jsxToDisplay = global.state.typographyElementsActive.map(entry => {
     return <ElementControl key={`control-${entry.element}`} props={entry} />
   })
 

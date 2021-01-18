@@ -2,7 +2,7 @@
 import React from 'react'
 
 // components
-import ElementControls from './ElementControls'
+import ElementActiveControls from './ElementActiveControls'
 import ElementAddControl from './ElementAddControl'
 import ExampleDisplay from './ExampleDisplay'
 
@@ -12,7 +12,7 @@ export default function Typography() {
       <header>
         <h2>Typography</h2>
       </header>
-      <ElementControls />
+      <ElementActiveControls />
       <ElementAddControl />
       <hr />
       <ExampleDisplay />
