@@ -14,6 +14,8 @@ const GOOGLE_FONTS_URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${
 
 export default function Typography() {
   const global = useContext(Context)
+
+  // get available google fonts via api, but memoize it
   useMemo(async () => {
     try {
       const res = await axios.get(GOOGLE_FONTS_URL)

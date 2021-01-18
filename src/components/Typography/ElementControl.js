@@ -1,7 +1,41 @@
 // packages
-import React from 'react'
+import React, { useContext } from 'react'
+
+// components
+import { CONTEXT_ACTIONS, Context } from '../App/App'
 
 export default function ElementControl({ props }) {
+  const global = useContext(Context)
+
+  const handleFontFamilyChange = e => {
+    const currentOption = e.currentTarget.querySelector('option:checked')
+
+    // props is copy of activeElement we'll mutate the fontFamily on
+    // spread a copy
+    let newEntry = {
+      ...props,
+      style: { ...props.style, fontFamily: currentOption.value },
+    }
+
+    // build a new global context
+    let newContext = { ...global.state }
+
+    // replace old activeElement entry with new
+    newContext.typographyElementsActive.forEach((activeElementObj, i) => {
+      if (activeElementObj.element === props.element) {
+        newContext.typographyElementsActive.splice(i, 1)
+      }
+    })
+
+    newContext.typographyElementsActive.push(newEntry)
+
+    // dispatch the new context
+    global.dispatch({
+      type: CONTEXT_ACTIONS.TYPOGRAPHY_FONT_UPDATE,
+      payload: newContext,
+    })
+  }
+
   return (
     <form onSubmit={e => e.preventDefault()}>
       <span>
@@ -19,12 +53,23 @@ export default function ElementControl({ props }) {
           Font Family
         </label>
         <select
-          name={`${props.element}-select-font-family`}
           id={`${props.element}-select-font-family`}
+          name={`${props.element}-select-font-family`}
+          onChange={handleFontFamilyChange}
         >
-          <option value={props.style.fontFamily}>
+          <option default value={props.style.fontFamily}>
             {props.style.fontFamily}
           </option>
+          {global.state.typographyFontsAvailable.map(availableFont => {
+            return (
+              <option
+                key={Math.random + availableFont.family} // not sure why this is needed
+                value={availableFont.family}
+              >
+                {availableFont.family}
+              </option>
+            )
+          })}
         </select>
       </span>
 
