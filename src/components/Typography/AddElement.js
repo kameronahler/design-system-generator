@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 
 // components
-import { Context } from '../App/App'
+import { CONTEXT_ACTIONS, Context } from '../App/App'
 
 export default function AddElement() {
   const global = useContext(Context)
@@ -21,10 +21,30 @@ export default function AddElement() {
 
   const availableElements = filterPossibleElements()
 
+  const handleSelectChange = e => {
+    const currentOption = e.currentTarget.querySelector('option:checked')
+    const newEntry = global.state.typographyElementsDefault.filter(
+      obj => obj.element === currentOption.value
+    )
+    const newContext = { ...global.state }
+
+    newContext.typographyElementsActive.push(newEntry[0])
+
+    global.dispatch({
+      type: CONTEXT_ACTIONS.TYPOGRAPHY_FONTS_AVAILABLE_UPDATE,
+      payload: newContext,
+    })
+  }
+
   return (
     <form onSubmit={e => e.preventDefault()}>
       <label htmlFor='add-element-select'>Add Element</label>
-      <select name='add-element-select' id='add-element-select'>
+      <select
+        id='add-element-select'
+        name='add-element-select'
+        onChange={handleSelectChange}
+      >
+        <option default>Select a new element to add</option>
         {availableElements.map(possibleElement => {
           return (
             <option
