@@ -2,19 +2,48 @@
 import React, { useContext } from 'react'
 
 // components
-import { CONTEXT_ACTIONS, Context } from '../App/App'
+import { CONTEXT_ACTIONS, Context } from '../../App/App'
 
-export default function ElementControl({ props }) {
+// static
+const GOOGLE_FONTS_CSS_URL = process.env.GOOGLE_FONTS_CSS_URL
+
+export default function Control({ props }) {
   const global = useContext(Context)
 
-  const handleFontFamilyChange = e => {
-    const currentOption = e.currentTarget.querySelector('option:checked')
+  const handleFontFamilyChange = async e => {
+    const currentOption = e.currentTarget.querySelector('option:checked').value
+    await updateHeadLink(currentOption)
+    setTimeout(() => {
+      updateActiveElementFontFamily(currentOption)
+    }, 1000)
+  }
 
+  const updateHeadLink = currentOption => {
+    const familyQueryString = `${currentOption.replace(/\s/, '+')}`
+
+    const linkExists = document.head.querySelector(
+      `link[href*="${familyQueryString}"]`
+    )
+
+    if (linkExists) {
+      return
+    } else {
+      const newLink = document.createElement('link')
+      newLink.setAttribute('rel', 'stylesheet')
+      newLink.setAttribute(
+        'href',
+        `${GOOGLE_FONTS_CSS_URL}family=${familyQueryString}`
+      )
+      document.head.appendChild(newLink)
+    }
+  }
+
+  const updateActiveElementFontFamily = currentOption => {
     // props is copy of activeElement we'll mutate the fontFamily on
     // spread a copy
     let newEntry = {
       ...props,
-      style: { ...props.style, fontFamily: currentOption.value },
+      style: { ...props.style, fontFamily: currentOption },
     }
 
     // build a new global context
@@ -23,11 +52,9 @@ export default function ElementControl({ props }) {
     // replace old activeElement entry with new
     newContext.typographyElementsActive.forEach((activeElementObj, i) => {
       if (activeElementObj.element === props.element) {
-        newContext.typographyElementsActive.splice(i, 1)
+        newContext.typographyElementsActive.splice(i, 1, newEntry)
       }
     })
-
-    newContext.typographyElementsActive.push(newEntry)
 
     // dispatch the new context
     global.dispatch({

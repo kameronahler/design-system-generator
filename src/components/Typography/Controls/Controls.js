@@ -2,14 +2,14 @@
 import React, { useContext } from 'react'
 
 // components
-import { Context } from '../App/App'
-import ElementControl from './ElementControl'
+import { Context } from '../../App/App'
+import Control from './Control'
 
-export default function ElementActiveControls() {
+export default function Controls() {
   const global = useContext(Context)
 
   const jsxToDisplay = global.state.typographyElementsActive.map(entry => {
-    return <ElementControl key={`control-${entry.element}`} props={entry} />
+    return <Control key={`control-${entry.element}`} props={entry} />
   })
 
   return <div>{jsxToDisplay}</div>

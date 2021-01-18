@@ -21,6 +21,18 @@ const _initialContext = {
       },
       text: 'Lorem ipsum dolor sit amet',
     },
+    {
+      element: 'h1',
+      style: {
+        color: '#333',
+        fontFamily: 'sans-serif',
+        fontSize: '48px',
+        fontWeight: '700',
+        lineHeight: '1.2',
+        margin: '0',
+      },
+      text: 'Lorem ipsum dolor sit amet',
+    },
   ],
   typographyElementsDefault: [
     {

@@ -1,7 +1,7 @@
 // packages
 import React from 'react'
 
-export default function ElementAddControl() {
+export default function AddControl() {
   return (
     <form onSubmit={e => e.preventDefault()}>
       <label htmlFor='add-element-select'>Add Element</label>

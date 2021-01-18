@@ -4,8 +4,8 @@ import axios from 'axios'
 
 // components
 import { CONTEXT_ACTIONS, Context } from '../App/App'
-import ElementActiveControls from './ElementActiveControls'
-import ElementAddControl from './ElementAddControl'
+import Controls from './Controls/Controls'
+import AddControl from './Controls/AddControl'
 import ExampleDisplay from './ExampleDisplay'
 
 // static
@@ -37,9 +37,9 @@ export default function Typography() {
       <header>
         <h2>Typography</h2>
       </header>
-      <ElementAddControl />
+      <AddControl />
       <hr />
-      <ElementActiveControls />
+      <Controls />
       <hr />
       <ExampleDisplay />
     </section>
