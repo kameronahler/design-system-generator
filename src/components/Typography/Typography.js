@@ -2,9 +2,8 @@
 import React from 'react'
 
 // components
-// import ElementsCheckboxes from './ElementsCheckboxes'
-// import Font from './Font'
-import ElementsDisplay from './ElementsDisplay'
+import ElementControls from './ElementControls'
+import ExampleDisplay from './ExampleDisplay'
 
 export default function Typography() {
   return (
@@ -12,7 +11,9 @@ export default function Typography() {
       <header>
         <h2>Typography</h2>
       </header>
-      <ElementsDisplay />
+      <ElementControls />
+      <hr />
+      <ExampleDisplay />
     </section>
   )
 }

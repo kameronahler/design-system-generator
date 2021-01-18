@@ -11,7 +11,6 @@ const _initialContext = {
   typographyActiveElements: [
     {
       element: 'p',
-      elementDisplay: '<p>',
       style: {
         color: '#333',
         fontFamily: 'sans-serif',
@@ -23,7 +22,6 @@ const _initialContext = {
     },
     {
       element: 'h1',
-      elementDisplay: '<h1>',
       style: {
         color: '#333',
         fontFamily: 'sans-serif',
