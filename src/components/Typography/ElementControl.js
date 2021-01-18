@@ -67,22 +67,22 @@ export default function ElementControl({ props }) {
       </span>
 
       <span>
-        <label htmlFor={`${props.element}-input-color`}>Color</label>
-        <input
-          name={`${props.element}-input-color`}
-          id={`${props.element}-input-color`}
-          type='text'
-          value={props.style.color}
-        ></input>
-      </span>
-
-      <span>
         <label htmlFor={`${props.element}-input-margin`}>Margin</label>
         <input
           name={`${props.element}-input-margin`}
           id={`${props.element}-input-margin`}
           type='text'
           value={props.style.margin}
+        ></input>
+      </span>
+
+      <span>
+        <label htmlFor={`${props.element}-input-color`}>Color</label>
+        <input
+          name={`${props.element}-input-color`}
+          id={`${props.element}-input-color`}
+          type='text'
+          value={props.style.color}
         ></input>
       </span>
     </form>
