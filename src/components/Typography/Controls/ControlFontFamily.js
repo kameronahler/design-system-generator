@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 
 // components
-import { CONTEXT_ACTIONS, Context } from '../../App/App'
+import { Context } from '../../App/App'
 
 // static
 const GOOGLE_FONTS_CSS_URL = process.env.GOOGLE_FONTS_CSS_URL
@@ -51,10 +51,7 @@ export default function ControlFontFamily({ props }) {
       }
     })
 
-    global.dispatch({
-      type: CONTEXT_ACTIONS.TYPOGRAPHY_FONT_UPDATE,
-      payload: newContext,
-    })
+    global.dispatch({ payload: newContext })
   }
 
   return (

@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 
 // components
-import { CONTEXT_ACTIONS, Context } from '../App/App'
+import { Context } from '../App/App'
 
 export default function AddElement() {
   const global = useContext(Context)
@@ -30,10 +30,7 @@ export default function AddElement() {
 
     newContext.typographyElementsActive.push(newEntry[0])
 
-    global.dispatch({
-      type: CONTEXT_ACTIONS.TYPOGRAPHY_FONTS_AVAILABLE_UPDATE,
-      payload: newContext,
-    })
+    global.dispatch({ payload: newContext })
   }
 
   return (

@@ -3,7 +3,7 @@ import React, { useMemo, useContext } from 'react'
 import axios from 'axios'
 
 // components
-import { CONTEXT_ACTIONS, Context } from '../App/App'
+import { Context } from '../App/App'
 import ActiveElements from './ActiveElements'
 import AddElement from './AddElement'
 import ExampleDisplay from './ExampleDisplay'
@@ -23,10 +23,7 @@ export default function Typography() {
         ...global.state,
         typographyFontsAvailable: res.data.items,
       }
-      global.dispatch({
-        type: CONTEXT_ACTIONS.TYPOGRAPHY_FONTS_AVAILABLE_UPDATE,
-        payload: newState,
-      })
+      global.dispatch({ payload: newState })
     } catch (err) {
       console.error(err)
     }
