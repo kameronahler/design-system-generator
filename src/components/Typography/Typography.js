@@ -3,6 +3,7 @@ import React from 'react'
 
 // components
 import ElementControls from './ElementControls'
+import ElementAddControl from './ElementAddControl'
 import ExampleDisplay from './ExampleDisplay'
 
 export default function Typography() {
@@ -12,6 +13,7 @@ export default function Typography() {
         <h2>Typography</h2>
       </header>
       <ElementControls />
+      <ElementAddControl />
       <hr />
       <ExampleDisplay />
     </section>
