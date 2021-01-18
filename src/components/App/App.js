@@ -32,10 +32,13 @@ const _initialContext = {
       text: 'Lorem ipsum dolor sit amet',
     },
   ],
+  typographyFontsAvailable: ['Loading...'],
 }
 
 const _context_reducer = (state, action) => {
   switch (action.type) {
+    case CONTEXT_ACTIONS.TYPOGRAPHY_FONTS_AVAILABLE_UPDATE:
+      return action.payload
     case CONTEXT_ACTIONS.TYPOGRAPHY_ELEMENTS_UPDATE:
       return action.payload
     case CONTEXT_ACTIONS.TYPOGRAPHY_FONT_UPDATE:
@@ -51,6 +54,7 @@ export const Context = React.createContext()
 export const CONTEXT_ACTIONS = {
   TYPOGRAPHY_ELEMENTS_UPDATE: 'typography_elements_update',
   TYPOGRAPHY_FONT_UPDATE: 'typography_font_update',
+  TYPOGRAPHY_FONTS_AVAILABLE_UPDATE: 'typography_fonts_available',
 }
 
 // app export

@@ -15,6 +15,18 @@ export default function ElementControl({ props }) {
       </span>
 
       <span>
+        <label htmlFor={`${props.element}-select-font-family`}>
+          Font Family
+        </label>
+        <select
+          name={`${props.element}-select-font-family`}
+          id={`${props.element}-select-font-family`}
+        >
+          <option value={props.element}>{props.style.fontFamily}</option>
+        </select>
+      </span>
+
+      <span>
         <label htmlFor={`${props.element}-input-font-size`}>
           Font Size (px)
         </label>
