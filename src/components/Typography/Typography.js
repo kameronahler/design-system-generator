@@ -22,7 +22,7 @@ export default function Typography() {
       const res = await axios.get(GOOGLE_FONTS_URL)
       const newContext = {
         ...global.state,
-        typographyFontsAvailable: res.data.items,
+        typographyFontsPossible: res.data.items,
       }
       global.dispatch({ payload: newContext })
     } catch (err) {

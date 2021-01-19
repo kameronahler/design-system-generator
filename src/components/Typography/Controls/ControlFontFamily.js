@@ -14,8 +14,8 @@ export default function ControlFontFamily({ props }) {
     const currentOption = e.currentTarget.querySelector('option:checked').value
     await updateHeadLink(currentOption)
     setTimeout(() => {
-      updateActiveElementFontFamily(currentOption)
-    }, 1000)
+      updateContextWithFamilyAndCurrentGoogleFont(currentOption)
+    }, 500)
   }
 
   const updateHeadLink = currentOption => {
@@ -38,13 +38,19 @@ export default function ControlFontFamily({ props }) {
     }
   }
 
-  const updateActiveElementFontFamily = currentOption => {
-    let newEntry = {
+  const updateContextWithFamilyAndCurrentGoogleFont = currentOption => {
+    const googleFont = global.state.typographyFontsPossible.filter(
+      googleFont => googleFont.family === currentOption
+    )
+
+    const newEntry = {
       ...props,
       style: { ...props.style, fontFamily: currentOption },
+      googleFont: { ...googleFont[0] },
     }
 
-    let newContext = { ...global.state }
+    const newContext = { ...global.state }
+
     newContext.typographyElementsActive.forEach((activeElementObj, i) => {
       if (activeElementObj.element === props.element) {
         newContext.typographyElementsActive.splice(i, 1, newEntry)
@@ -65,7 +71,7 @@ export default function ControlFontFamily({ props }) {
         <option default value={props.style.fontFamily}>
           {props.style.fontFamily}
         </option>
-        {global.state.typographyFontsAvailable.map(availableFont => {
+        {global.state.typographyFontsPossible.map(availableFont => {
           return (
             <option
               key={Math.random + availableFont.family} // not sure why this is needed

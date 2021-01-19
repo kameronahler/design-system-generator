@@ -5,6 +5,7 @@ import React from 'react'
 import ControlColor from './Controls/ControlColor'
 import ControlFontFamily from './Controls/ControlFontFamily'
 import ControlFontSize from './Controls/ControlFontSize'
+import ControlFontWeight from './Controls/ControlFontWeight'
 import ControlLineHeight from './Controls/ControlLineHeight'
 import ControlMargin from './Controls/ControlMargin'
 
@@ -20,17 +21,7 @@ export default function Element({ props }) {
       </div>
 
       <div>
-        <label htmlFor={`${props.element}-select-font-weight`}>
-          Font Weight
-        </label>
-        <select
-          name={`${props.element}-select-font-weight`}
-          id={`${props.element}-select-font-weight`}
-        >
-          <option value={props.style.fontWeight}>
-            {props.style.fontWeight}
-          </option>
-        </select>
+        <ControlFontWeight props={props} />
       </div>
 
       <div>
