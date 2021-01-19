@@ -12,11 +12,11 @@ export default function Element({ props }) {
         <h3>{props.element}</h3>
       </header>
 
-      <span>
+      <div>
         <ControlFontFamily props={props} />
-      </span>
+      </div>
 
-      <span>
+      <div>
         <label htmlFor={`${props.element}-select-font-weight`}>
           Font Weight
         </label>
@@ -28,13 +28,13 @@ export default function Element({ props }) {
             {props.style.fontWeight}
           </option>
         </select>
-      </span>
+      </div>
 
-      <span>
+      <div>
         <ControlFontSize props={props} />
-      </span>
+      </div>
 
-      <span>
+      <div>
         <label htmlFor={`${props.element}-input-line-height`}>
           Line Height
         </label>
@@ -44,9 +44,9 @@ export default function Element({ props }) {
           type='text'
           value={props.style.lineHeight}
         ></input>
-      </span>
+      </div>
 
-      <span>
+      <div>
         <label htmlFor={`${props.element}-input-margin`}>Margin</label>
         <input
           name={`${props.element}-input-margin`}
@@ -54,9 +54,9 @@ export default function Element({ props }) {
           type='text'
           value={props.style.margin}
         ></input>
-      </span>
+      </div>
 
-      <span>
+      <div>
         <label htmlFor={`${props.element}-input-color`}>Color</label>
         <input
           name={`${props.element}-input-color`}
@@ -64,7 +64,7 @@ export default function Element({ props }) {
           type='text'
           value={props.style.color}
         ></input>
-      </span>
+      </div>
     </form>
   )
 }

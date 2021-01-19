@@ -12,5 +12,5 @@ export default function ActiveElements() {
     return <Element key={`control-${entry.element}`} props={entry} />
   })
 
-  return <div>{jsxToDisplay}</div>
+  return <div style={{ marginBottom: '2rem' }}>{jsxToDisplay}</div>
 }

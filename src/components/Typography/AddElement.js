@@ -34,7 +34,7 @@ export default function AddElement() {
   }
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form style={{ marginBottom: '2rem' }} onSubmit={e => e.preventDefault()}>
       <label htmlFor='add-element-select'>Add Element</label>
       <select
         id='add-element-select'

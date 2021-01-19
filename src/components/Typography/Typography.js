@@ -36,9 +36,7 @@ export default function Typography() {
         <h2>Typography</h2>
       </header>
       <AddElement />
-      <hr />
       <ActiveElements />
-      <hr />
       <ExampleDisplay />
     </section>
   )
