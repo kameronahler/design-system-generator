@@ -4,6 +4,7 @@ import React from 'react'
 // components
 import ControlFontFamily from './Controls/ControlFontFamily'
 import ControlFontSize from './Controls/ControlFontSize'
+import ControlLineHeight from './Controls/ControlLineHeight'
 
 export default function Element({ props }) {
   return (
@@ -35,15 +36,7 @@ export default function Element({ props }) {
       </div>
 
       <div>
-        <label htmlFor={`${props.element}-input-line-height`}>
-          Line Height
-        </label>
-        <input
-          name={`${props.element}-input-line-height`}
-          id={`${props.element}-input-line-height`}
-          type='text'
-          value={props.style.lineHeight}
-        ></input>
+        <ControlLineHeight props={props} />
       </div>
 
       <div>
