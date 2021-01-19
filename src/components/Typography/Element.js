@@ -3,19 +3,14 @@ import React from 'react'
 
 // components
 import ControlFontFamily from './Controls/ControlFontFamily'
+import ControlFontSize from './Controls/ControlFontSize'
 
 export default function Element({ props }) {
   return (
     <form onSubmit={e => e.preventDefault()}>
-      <span>
-        <label htmlFor={`${props.element}-select-element`}>Element</label>
-        <select
-          name={`${props.element}-select-element`}
-          id={`${props.element}-select-element`}
-        >
-          <option value={props.element}>{props.element}</option>
-        </select>
-      </span>
+      <header>
+        <h3>{props.element}</h3>
+      </header>
 
       <span>
         <ControlFontFamily props={props} />
@@ -36,15 +31,7 @@ export default function Element({ props }) {
       </span>
 
       <span>
-        <label htmlFor={`${props.element}-input-font-size`}>
-          Font Size (px)
-        </label>
-        <input
-          name={`${props.element}-input-font-size`}
-          id={`${props.element}-input-font-size`}
-          type='number'
-          value={parseInt(props.style.fontSize)}
-        ></input>
+        <ControlFontSize props={props} />
       </span>
 
       <span>
