@@ -5,6 +5,7 @@ import React from 'react'
 import ControlFontFamily from './Controls/ControlFontFamily'
 import ControlFontSize from './Controls/ControlFontSize'
 import ControlLineHeight from './Controls/ControlLineHeight'
+import ControlMargin from './Controls/ControlMargin'
 
 export default function Element({ props }) {
   return (
@@ -40,13 +41,7 @@ export default function Element({ props }) {
       </div>
 
       <div>
-        <label htmlFor={`${props.element}-input-margin`}>Margin</label>
-        <input
-          name={`${props.element}-input-margin`}
-          id={`${props.element}-input-margin`}
-          type='text'
-          value={props.style.margin}
-        ></input>
+        <ControlMargin props={props} />
       </div>
 
       <div>
