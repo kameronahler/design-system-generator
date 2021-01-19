@@ -4,19 +4,19 @@ import React, { useContext, useState } from 'react'
 // components
 import { Context } from '../../App/App'
 
-export default function ControlMargin({ props }) {
+export default function ControlColor({ props }) {
   const global = useContext(Context)
-  const [displayValue, setDisplayValue] = useState(props.style.margin)
+  const [displayValue, setDisplayValue] = useState(props.style.color)
 
-  const handleMarginChange = e => {
+  const handleColorChange = e => {
     setDisplayValue(e.currentTarget.value)
   }
 
   // TODO: consider a debounce in tandem or a save button component
-  const handleMarginBlur = () => {
+  const handleColorBlur = () => {
     const newEntry = {
       ...props,
-      style: { ...props.style, margin: `${displayValue}` },
+      style: { ...props.style, color: `${displayValue}` },
     }
     const newContext = { ...global.state }
 
@@ -31,12 +31,12 @@ export default function ControlMargin({ props }) {
 
   return (
     <>
-      <label htmlFor={`${props.element}-input-margin`}>Margin (CSS)</label>
+      <label htmlFor={`${props.element}-input-color`}>Color</label>
       <input
-        id={`${props.element}-input-margin`}
-        name={`${props.element}-input-margin`}
-        onBlur={handleMarginBlur}
-        onChange={handleMarginChange}
+        id={`${props.element}-input-color`}
+        name={`${props.element}-input-color`}
+        onBlur={handleColorBlur}
+        onChange={handleColorChange}
         type='text'
         value={displayValue}
       ></input>

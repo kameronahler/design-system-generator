@@ -2,6 +2,7 @@
 import React from 'react'
 
 // components
+import ControlColor from './Controls/ControlColor'
 import ControlFontFamily from './Controls/ControlFontFamily'
 import ControlFontSize from './Controls/ControlFontSize'
 import ControlLineHeight from './Controls/ControlLineHeight'
@@ -45,13 +46,7 @@ export default function Element({ props }) {
       </div>
 
       <div>
-        <label htmlFor={`${props.element}-input-color`}>Color</label>
-        <input
-          name={`${props.element}-input-color`}
-          id={`${props.element}-input-color`}
-          type='text'
-          value={props.style.color}
-        ></input>
+        <ControlColor props={props} />
       </div>
     </form>
   )
