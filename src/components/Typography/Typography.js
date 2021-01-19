@@ -7,6 +7,7 @@ import { Context } from '../App/App'
 import ActiveElements from './ActiveElements'
 import AddElement from './AddElement'
 import ExampleDisplay from './ExampleDisplay'
+import './Typography.scss'
 
 // static
 const GOOGLE_API = process.env.GOOGLE_DEV_API
@@ -30,7 +31,7 @@ export default function Typography() {
   }, [])
 
   return (
-    <section style={{ marginLeft: '33vw' }}>
+    <section className='typography'>
       <header>
         <h2>Typography</h2>
       </header>

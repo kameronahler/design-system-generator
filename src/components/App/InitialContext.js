@@ -5,7 +5,7 @@ export const initialContext = {
     {
       element: 'p',
       style: {
-        color: '#333',
+        color: '#111',
         fontFamily: 'sans-serif',
         fontSize: '16px',
         fontWeight: '400',
@@ -17,7 +17,7 @@ export const initialContext = {
     {
       element: 'h1',
       style: {
-        color: '#333',
+        color: '#111',
         fontFamily: 'sans-serif',
         fontSize: '48px',
         fontWeight: '700',
@@ -31,7 +31,7 @@ export const initialContext = {
     {
       element: 'p',
       style: {
-        color: '#333',
+        color: '#111',
         fontFamily: 'sans-serif',
         fontSize: '16px',
         fontWeight: '400',
@@ -43,7 +43,7 @@ export const initialContext = {
     {
       element: 'h1',
       style: {
-        color: '#333',
+        color: '#111',
         fontFamily: 'sans-serif',
         fontSize: '48px',
         fontWeight: '700',
@@ -55,7 +55,7 @@ export const initialContext = {
     {
       element: 'h2',
       style: {
-        color: '#333',
+        color: '#111',
         fontFamily: 'sans-serif',
         fontSize: '32px',
         fontWeight: '700',
@@ -67,7 +67,7 @@ export const initialContext = {
     {
       element: 'h3',
       style: {
-        color: '#333',
+        color: '#111',
         fontFamily: 'sans-serif',
         fontSize: '24px',
         fontWeight: '700',
@@ -79,7 +79,7 @@ export const initialContext = {
     {
       element: 'h4',
       style: {
-        color: '#333',
+        color: '#111',
         fontFamily: 'sans-serif',
         fontSize: '20px',
         fontWeight: '700',
@@ -91,7 +91,7 @@ export const initialContext = {
     {
       element: 'h5',
       style: {
-        color: '#333',
+        color: '#111',
         fontFamily: 'sans-serif',
         fontSize: '18px',
         fontWeight: '700',
@@ -103,7 +103,7 @@ export const initialContext = {
     {
       element: 'h6',
       style: {
-        color: '#333',
+        color: '#111',
         fontFamily: 'sans-serif',
         fontSize: '16px',
         fontWeight: '700',
