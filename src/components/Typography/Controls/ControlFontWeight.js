@@ -16,10 +16,16 @@ export default function ControlFontWeight({ props }) {
   const global = useContext(Context)
 
   // handlers
-  const handleFontWeightChange = e => {
+  const handleFontWeightChange = async e => {
     const currentOption = e.currentTarget.querySelector('option:checked').value
-    updateContextFontWeight(currentOption)
-    updateHeadLink(currentOption)
+    try {
+      await updateHeadLink(currentOption)
+      setTimeout(() => {
+        updateContextFontWeight(currentOption)
+      }, 400)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const updateHeadLink = currentOption => {

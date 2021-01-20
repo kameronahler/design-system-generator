@@ -16,10 +16,14 @@ export default function ControlFontFamily({ props }) {
   // handlers
   const handleFontFamilyChange = async e => {
     const currentOption = e.currentTarget.querySelector('option:checked').value
-    await updateHeadLink(currentOption)
-    setTimeout(() => {
-      updateContextWithFamilyAndCurrentGoogleFont(currentOption)
-    }, 500)
+    try {
+      await updateHeadLink(currentOption)
+      setTimeout(() => {
+        updateContextWithFamilyAndCurrentGoogleFont(currentOption)
+      }, 400)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const updateHeadLink = currentOption => {
