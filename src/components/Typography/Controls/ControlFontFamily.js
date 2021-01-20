@@ -6,10 +6,14 @@ import { Context } from '../../App/App'
 
 // static
 const GOOGLE_FONTS_CSS_URL = process.env.GOOGLE_FONTS_CSS_URL
+const GOOGLE_FONTS_FAMILY_QUERY_PREFIX =
+  process.env.GOOGLE_FONTS_FAMILY_QUERY_PREFIX
 
 export default function ControlFontFamily({ props }) {
+  // state
   const global = useContext(Context)
 
+  // handlers
   const handleFontFamilyChange = async e => {
     const currentOption = e.currentTarget.querySelector('option:checked').value
     await updateHeadLink(currentOption)
@@ -22,6 +26,7 @@ export default function ControlFontFamily({ props }) {
     const familyQueryString = `${currentOption.replace(/\s/, '+')}`
 
     const linkExists = document.head.querySelector(
+      //TODO: could probably use useRef here
       `link[href*="${familyQueryString}"]`
     )
 
@@ -32,7 +37,9 @@ export default function ControlFontFamily({ props }) {
       newLink.setAttribute('rel', 'stylesheet')
       newLink.setAttribute(
         'href',
-        `${GOOGLE_FONTS_CSS_URL}family=${familyQueryString}`
+        GOOGLE_FONTS_CSS_URL +
+          GOOGLE_FONTS_FAMILY_QUERY_PREFIX +
+          familyQueryString
       )
       document.head.appendChild(newLink)
     }
@@ -74,7 +81,7 @@ export default function ControlFontFamily({ props }) {
         {global.state.typographyFontsPossible.map(availableFont => {
           return (
             <option
-              key={Math.random + availableFont.family} // not sure why this is needed
+              key={props.element + '-' + availableFont.family}
               value={availableFont.family}
             >
               {availableFont.family}

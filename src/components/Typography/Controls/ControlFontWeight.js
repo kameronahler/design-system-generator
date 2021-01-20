@@ -4,9 +4,57 @@ import React, { useContext } from 'react'
 // components
 import { Context } from '../../App/App'
 
+// static
+const GOOGLE_FONTS_FAMILY_QUERY_PREFIX =
+  process.env.GOOGLE_FONTS_FAMILY_QUERY_PREFIX
+const GOOGLE_FONTS_WEIGHT_QUERY_PREFIX =
+  process.env.GOOGLE_FONTS_WEIGHT_QUERY_PREFIX
+const GOOGLE_FONTS_CSS_URL = process.env.GOOGLE_FONTS_CSS_URL
+
 export default function ControlFontWeight({ props }) {
+  // state
   const global = useContext(Context)
 
+  // handlers
+  const handleFontWeightChange = e => {
+    const currentOption = e.currentTarget.querySelector('option:checked').value
+    updateContextFontWeight(currentOption)
+    updateHeadLink(currentOption)
+  }
+
+  const updateHeadLink = currentOption => {
+    // TODO: urrently creates one-off links because google requires tuples to be sorted
+    // and i didn't feel like doing that now
+    // at minimum these could check for existing matches or use useRef
+    const familyQueryString = `${props.style.fontFamily.replace(/\s/, '+')}`
+    const newLink = document.createElement('link')
+    newLink.setAttribute('rel', 'stylesheet')
+    newLink.setAttribute(
+      'href',
+      GOOGLE_FONTS_CSS_URL +
+        GOOGLE_FONTS_FAMILY_QUERY_PREFIX +
+        familyQueryString +
+        GOOGLE_FONTS_WEIGHT_QUERY_PREFIX +
+        currentOption
+    )
+    document.head.appendChild(newLink)
+  }
+
+  const updateContextFontWeight = currentOption => {
+    const newEntry = {
+      ...props,
+      style: { ...props.style, fontWeight: currentOption },
+    }
+    const newContext = { ...global.state }
+    newContext.typographyElementsActive.forEach((activeElementObj, i) => {
+      if (activeElementObj.element === props.element) {
+        newContext.typographyElementsActive.splice(i, 1, newEntry)
+      }
+    })
+    global.dispatch({ payload: newContext })
+  }
+
+  // jsx
   let jsxToDisplay = null
 
   if (props.googleFont) {
@@ -16,15 +64,22 @@ export default function ControlFontWeight({ props }) {
     jsxToDisplay = jsxToDisplay.map(weight => (
       <option
         selected={weight === 'regular' ? true : false}
-        key={`${props.element}-input-font-weight-${weight}`}
-        value={weight === 'regular' ? 'normal' : weight}
+        key={`${props.element}-${props.style.fontFamily.replace(
+          /\s/,
+          ''
+        )}-input-font-weight-${weight}`}
+        value={weight === 'regular' ? '400' : weight}
       >
         {weight === 'regular' ? 'Normal' : weight}
       </option>
     ))
   } else {
     jsxToDisplay = [
-      <option default value={props.style.fontWeight}>
+      <option
+        key={`default-input-font-weight`}
+        default
+        value={props.style.fontWeight}
+      >
         {props.style.fontWeight}
       </option>,
     ]
@@ -36,7 +91,7 @@ export default function ControlFontWeight({ props }) {
       <select
         id={`${props.element}-input-font-weight`}
         name={`${props.element}-input-font-weight`}
-        // onChange={handleFontWeightChange}
+        onChange={handleFontWeightChange}
       >
         {jsxToDisplay}
       </select>
