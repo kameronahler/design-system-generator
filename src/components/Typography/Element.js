@@ -8,6 +8,7 @@ import ControlFontSize from './Controls/ControlFontSize'
 import ControlFontWeight from './Controls/ControlFontWeight'
 import ControlLineHeight from './Controls/ControlLineHeight'
 import ControlMargin from './Controls/ControlMargin'
+import ControlText from './Controls/ControlText'
 
 export default function Element({ props }) {
   return (
@@ -38,6 +39,10 @@ export default function Element({ props }) {
 
       <div>
         <ControlColor props={props} />
+      </div>
+
+      <div>
+        <ControlText props={props} />
       </div>
     </form>
   )
