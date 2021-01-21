@@ -8,6 +8,7 @@ import ControlFontSize from './Controls/ControlFontSize'
 import ControlFontWeight from './Controls/ControlFontWeight'
 import ControlLineHeight from './Controls/ControlLineHeight'
 import ControlMargin from './Controls/ControlMargin'
+import ControlRemoveElement from './Controls/ControlRemoveElement'
 import ControlText from './Controls/ControlText'
 
 export default function Element({ props }) {
@@ -16,6 +17,10 @@ export default function Element({ props }) {
       <header>
         <h3>{props.element}</h3>
       </header>
+
+      <div>
+        <ControlRemoveElement props={props} />
+      </div>
 
       <div>
         <ControlFontFamily props={props} />
