@@ -32,9 +32,15 @@ export default function ControlFontSize({ props }) {
   }
 
   return (
-    <>
-      <label htmlFor={`${props.element}-input-font-size`}>Font Size (px)</label>
+    <div className='element-control'>
+      <label
+        className='element-control__label'
+        htmlFor={`${props.element}-input-font-size`}
+      >
+        Font Size (px)
+      </label>
       <input
+        className='element-control__input'
         id={`${props.element}-input-font-size`}
         name={`${props.element}-input-font-size`}
         onChange={handleFontSizeChange}
@@ -42,6 +48,6 @@ export default function ControlFontSize({ props }) {
         type='number'
         value={displayValue}
       ></input>
-    </>
+    </div>
   )
 }

@@ -15,5 +15,9 @@ export default function ControlRemoveElement({ props }) {
     global.dispatch({ payload: newContext })
   }
 
-  return <button onClick={handleClick}>Delete</button>
+  return (
+    <button className='element-control__input' onClick={handleClick}>
+      Delete
+    </button>
+  )
 }

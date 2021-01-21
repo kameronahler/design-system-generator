@@ -30,9 +30,15 @@ export default function ControlColor({ props }) {
   }
 
   return (
-    <>
-      <label htmlFor={`${props.element}-input-color`}>Color</label>
+    <div className='element-control'>
+      <label
+        className='element-control__label'
+        htmlFor={`${props.element}-input-color`}
+      >
+        Color
+      </label>
       <input
+        className='element-control__input'
         id={`${props.element}-input-color`}
         name={`${props.element}-input-color`}
         onBlur={handleColorBlur}
@@ -40,6 +46,6 @@ export default function ControlColor({ props }) {
         type='text'
         value={displayValue}
       ></input>
-    </>
+    </div>
   )
 }

@@ -34,14 +34,16 @@ export default function AddElement() {
   }
 
   return (
-    <form style={{ marginBottom: '2rem' }} onSubmit={e => e.preventDefault()}>
-      <label htmlFor='add-element-select'>Add Element</label>
+    <form onSubmit={e => e.preventDefault()}>
+      <label className='accessibly-hidden' htmlFor='add-element-select'>
+        Select an typography element to add
+      </label>
       <select
         id='add-element-select'
         name='add-element-select'
         onChange={handleSelectChange}
       >
-        <option default>Select a new element to add</option>
+        <option default>Add element</option>
         {availableElements.map(possibleElement => {
           return (
             <option

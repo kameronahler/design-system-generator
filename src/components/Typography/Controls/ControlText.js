@@ -29,9 +29,15 @@ export default function ControlText({ props }) {
   }
 
   return (
-    <>
-      <label htmlFor={`${props.element}-input-text`}>Text</label>
+    <div className='element-control'>
+      <label
+        className='element-control__label'
+        htmlFor={`${props.element}-input-text`}
+      >
+        Text
+      </label>
       <input
+        className='element-control__input'
         id={`${props.element}-input-text`}
         name={`${props.element}-input-text`}
         onBlur={handleColorBlur}
@@ -39,6 +45,6 @@ export default function ControlText({ props }) {
         type='text'
         value={displayValue}
       ></input>
-    </>
+    </div>
   )
 }

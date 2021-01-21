@@ -92,15 +92,21 @@ export default function ControlFontWeight({ props }) {
   }
 
   return (
-    <>
-      <label htmlFor={`${props.element}-input-font-weight`}>Font Weight</label>
+    <div className='element-control'>
+      <label
+        className='element-control__label'
+        htmlFor={`${props.element}-input-font-weight`}
+      >
+        Font Weight
+      </label>
       <select
+        className='element-control__input'
         id={`${props.element}-input-font-weight`}
         name={`${props.element}-input-font-weight`}
         onChange={handleFontWeightChange}
       >
         {jsxToDisplay}
       </select>
-    </>
+    </div>
   )
 }

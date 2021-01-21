@@ -30,9 +30,15 @@ export default function ControlMargin({ props }) {
   }
 
   return (
-    <>
-      <label htmlFor={`${props.element}-input-margin`}>Margin (CSS)</label>
+    <div className='element-control'>
+      <label
+        className='element-control__label'
+        htmlFor={`${props.element}-input-margin`}
+      >
+        Margin (CSS)
+      </label>
       <input
+        className='element-control__input'
         id={`${props.element}-input-margin`}
         name={`${props.element}-input-margin`}
         onBlur={handleMarginBlur}
@@ -40,6 +46,6 @@ export default function ControlMargin({ props }) {
         type='text'
         value={displayValue}
       ></input>
-    </>
+    </div>
   )
 }

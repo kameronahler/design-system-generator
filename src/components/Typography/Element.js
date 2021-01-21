@@ -10,44 +10,27 @@ import ControlLineHeight from './Controls/ControlLineHeight'
 import ControlMargin from './Controls/ControlMargin'
 import ControlRemoveElement from './Controls/ControlRemoveElement'
 import ControlText from './Controls/ControlText'
+import './Element.scss'
 
 export default function Element({ props }) {
   return (
-    <form onSubmit={e => e.preventDefault()}>
-      <header>
-        <h3>{props.element}</h3>
-      </header>
-
-      <div>
-        <ControlRemoveElement props={props} />
-      </div>
-
-      <div>
-        <ControlFontFamily props={props} />
-      </div>
-
-      <div>
-        <ControlFontWeight props={props} />
-      </div>
-
-      <div>
-        <ControlFontSize props={props} />
-      </div>
-
-      <div>
-        <ControlLineHeight props={props} />
-      </div>
-
-      <div>
-        <ControlMargin props={props} />
-      </div>
-
-      <div>
-        <ControlColor props={props} />
-      </div>
-
-      <div>
-        <ControlText props={props} />
+    <form className='element' onSubmit={e => e.preventDefault()}>
+      <div className='element__inner'>
+        <header className='element__header'>
+          <h1 className='element__title'>{props.element}</h1>
+          <ControlRemoveElement props={props} />
+        </header>
+        <div className='element__controls'>
+          <ControlFontFamily props={props} />
+          <ControlFontWeight props={props} />
+          <ControlFontSize props={props} />
+          <ControlLineHeight props={props} />
+          <ControlMargin props={props} />
+          <ControlColor props={props} />
+        </div>
+        <div className='element__text'>
+          <ControlText props={props} />
+        </div>
       </div>
     </form>
   )

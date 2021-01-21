@@ -32,10 +32,10 @@ export default function Typography() {
 
   return (
     <section className='typography'>
-      <header>
-        <h2>Typography</h2>
+      <header className='typography__header'>
+        <h2 className='typography__heading'>Typography</h2>
+        <AddElement />
       </header>
-      <AddElement />
       <ActiveElements />
       <ExampleDisplay />
     </section>

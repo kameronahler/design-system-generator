@@ -72,9 +72,15 @@ export default function ControlFontFamily({ props }) {
   }
 
   return (
-    <>
-      <label htmlFor={`${props.element}-select-font-family`}>Font Family</label>
+    <div className='element-control'>
+      <label
+        className='element-control__label'
+        htmlFor={`${props.element}-select-font-family`}
+      >
+        Font Family
+      </label>
       <select
+        className='element-control__input'
         id={`${props.element}-select-font-family`}
         name={`${props.element}-select-font-family`}
         onChange={handleFontFamilyChange}
@@ -85,6 +91,7 @@ export default function ControlFontFamily({ props }) {
         {global.state.typographyFontsPossible.map(availableFont => {
           return (
             <option
+              className='element__control-label'
               key={props.element + '-' + availableFont.family}
               value={availableFont.family}
             >
@@ -93,6 +100,6 @@ export default function ControlFontFamily({ props }) {
           )
         })}
       </select>
-    </>
+    </div>
   )
 }

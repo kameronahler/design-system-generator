@@ -1,4 +1,16 @@
 .typography {
-  margin-left: 33vw;
+  margin-left: 375px;
   padding: 1rem;
+  width: calc(100% - 375px);
+
+  &__header {
+    align-items: center;
+    display: flex;
+    margin-bottom: 1rem;
+  }
+
+  &__heading {
+    margin-bottom: unset;
+    margin-right: 1rem;
+  }
 }

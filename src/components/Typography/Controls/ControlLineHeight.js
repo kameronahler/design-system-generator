@@ -30,9 +30,15 @@ export default function ControlLineHeight({ props }) {
   }
 
   return (
-    <>
-      <label htmlFor={`${props.element}-input-line-height`}>Line Height</label>
+    <div className='element-control'>
+      <label
+        className='element-control__label'
+        htmlFor={`${props.element}-input-line-height`}
+      >
+        Line Height
+      </label>
       <input
+        className='element-control__input'
         id={`${props.element}-input-line-height`}
         name={`${props.element}-input-line-height`}
         onBlur={handleLineHeightBlur}
@@ -40,6 +46,6 @@ export default function ControlLineHeight({ props }) {
         type='text'
         value={displayValue}
       ></input>
-    </>
+    </div>
   )
 }
