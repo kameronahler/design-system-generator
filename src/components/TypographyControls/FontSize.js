@@ -2,9 +2,9 @@
 import React, { useContext, useState } from 'react'
 
 // components
-import { Context } from '../../App/App'
+import { Context } from '../App/App'
 
-export default function ControlFontSize({ props }) {
+export default function FontSize({ props }) {
   const global = useContext(Context)
   const [displayValue, setDisplayValue] = useState(
     parseInt(props.style.fontSize)
@@ -32,15 +32,10 @@ export default function ControlFontSize({ props }) {
   }
 
   return (
-    <div className='element-control'>
-      <label
-        className='element-control__label'
-        htmlFor={`${props.element}-input-font-size`}
-      >
-        Font Size (px)
-      </label>
+    <div className='typography-controls__control-wrapper'>
+      <label htmlFor={`${props.element}-input-font-size`}>Font Size (px)</label>
       <input
-        className='element-control__input'
+        className='typography-controls__input'
         id={`${props.element}-input-font-size`}
         name={`${props.element}-input-font-size`}
         onChange={handleFontSizeChange}

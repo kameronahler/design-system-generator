@@ -2,14 +2,14 @@
 import React, { useContext } from 'react'
 
 // components
-import { Context } from '../../App/App'
+import { Context } from '../App/App'
 
 // static
 const GOOGLE_FONTS_CSS_URL = process.env.GOOGLE_FONTS_CSS_URL
 const GOOGLE_FONTS_FAMILY_QUERY_PREFIX =
   process.env.GOOGLE_FONTS_FAMILY_QUERY_PREFIX
 
-export default function ControlFontFamily({ props }) {
+export default function FontFamily({ props }) {
   // state
   const global = useContext(Context)
 
@@ -72,15 +72,10 @@ export default function ControlFontFamily({ props }) {
   }
 
   return (
-    <div className='element-control'>
-      <label
-        className='element-control__label'
-        htmlFor={`${props.element}-select-font-family`}
-      >
-        Font Family
-      </label>
+    <div className='typography-controls__control-wrapper'>
+      <label htmlFor={`${props.element}-select-font-family`}>Font Family</label>
       <select
-        className='element-control__input'
+        className='typography-controls__input'
         id={`${props.element}-select-font-family`}
         name={`${props.element}-select-font-family`}
         onChange={handleFontFamilyChange}
@@ -91,7 +86,6 @@ export default function ControlFontFamily({ props }) {
         {global.state.typographyFontsPossible.map(availableFont => {
           return (
             <option
-              className='element__control-label'
               key={props.element + '-' + availableFont.family}
               value={availableFont.family}
             >

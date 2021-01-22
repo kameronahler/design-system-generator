@@ -2,9 +2,9 @@
 import React, { useContext, useState } from 'react'
 
 // components
-import { Context } from '../../App/App'
+import { Context } from '../App/App'
 
-export default function ControlText({ props }) {
+export default function Text({ props }) {
   const global = useContext(Context)
   const [displayValue, setDisplayValue] = useState(props.text)
 
@@ -29,15 +29,10 @@ export default function ControlText({ props }) {
   }
 
   return (
-    <div className='element-control'>
-      <label
-        className='element-control__label'
-        htmlFor={`${props.element}-input-text`}
-      >
-        Text
-      </label>
+    <div className='typography-controls__control-wrapper typography-controls__control-wrapper--text'>
+      <label htmlFor={`${props.element}-input-text`}>Text</label>
       <input
-        className='element-control__input'
+        className='typography-controls__input'
         id={`${props.element}-input-text`}
         name={`${props.element}-input-text`}
         onBlur={handleColorBlur}

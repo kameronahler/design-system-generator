@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 
 // components
-import { Context } from '../../App/App'
+import { Context } from '../App/App'
 
 // static
 const GOOGLE_FONTS_FAMILY_QUERY_PREFIX =
@@ -11,7 +11,7 @@ const GOOGLE_FONTS_WEIGHT_QUERY_PREFIX =
   process.env.GOOGLE_FONTS_WEIGHT_QUERY_PREFIX
 const GOOGLE_FONTS_CSS_URL = process.env.GOOGLE_FONTS_CSS_URL
 
-export default function ControlFontWeight({ props }) {
+export default function ElementControlFontWeight({ props }) {
   // state
   const global = useContext(Context)
 
@@ -92,15 +92,10 @@ export default function ControlFontWeight({ props }) {
   }
 
   return (
-    <div className='element-control'>
-      <label
-        className='element-control__label'
-        htmlFor={`${props.element}-input-font-weight`}
-      >
-        Font Weight
-      </label>
+    <div className='typography-controls__control-wrapper'>
+      <label htmlFor={`${props.element}-input-font-weight`}>Font Weight</label>
       <select
-        className='element-control__input'
+        className='typography-controls__input'
         id={`${props.element}-input-font-weight`}
         name={`${props.element}-input-font-weight`}
         onChange={handleFontWeightChange}

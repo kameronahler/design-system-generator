@@ -34,7 +34,10 @@ export default function AddElement() {
   }
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form
+      className='typography__add-element'
+      onSubmit={e => e.preventDefault()}
+    >
       <label className='accessibly-hidden' htmlFor='add-element-select'>
         Select an typography element to add
       </label>
