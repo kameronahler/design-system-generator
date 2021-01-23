@@ -20,9 +20,16 @@ export default function Typography() {
   useMemo(async () => {
     try {
       const res = await axios.get(GOOGLE_FONTS_URL)
+      const resFontsPossible = res.data.items.map(font => ({
+        family: font.family,
+        variants: font.variants,
+        files: font.files,
+        category: font.category,
+      }))
+
       const newContext = {
         ...global.state,
-        typographyFontsPossible: res.data.items,
+        typographyFontsPossible: resFontsPossible,
       }
       global.dispatch({ payload: newContext })
     } catch (err) {
