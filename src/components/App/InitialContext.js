@@ -3,18 +3,6 @@ export const initialContext = {
   typographyElementsPossible: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
   typographyElementsActive: [
     {
-      element: 'p',
-      style: {
-        color: '#111',
-        fontFamily: 'sans-serif',
-        fontSize: '16px',
-        fontWeight: 'Normal',
-        lineHeight: '1.5',
-        margin: '0',
-      },
-      text: 'Lorem ipsum dolor sit amet',
-    },
-    {
       element: 'h1',
       style: {
         color: '#111',
@@ -22,6 +10,18 @@ export const initialContext = {
         fontSize: '48px',
         fontWeight: 'Normal',
         lineHeight: '1.2',
+        margin: '0',
+      },
+      text: 'Lorem ipsum dolor sit amet',
+    },
+    {
+      element: 'p',
+      style: {
+        color: '#111',
+        fontFamily: 'sans-serif',
+        fontSize: '16px',
+        fontWeight: 'Normal',
+        lineHeight: '1.5',
         margin: '0',
       },
       text: 'Lorem ipsum dolor sit amet',

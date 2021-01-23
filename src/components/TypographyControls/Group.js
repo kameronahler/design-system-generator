@@ -8,10 +8,11 @@ import FontSize from './FontSize'
 import FontWeight from './FontWeight'
 import LineHeight from './LineHeight'
 import Margin from './Margin'
+import Order from './Order'
 import RemoveElement from './RemoveElement'
 import Text from './Text'
 
-export default function Set({ props }) {
+export default function Set({ renderIndex, props }) {
   return (
     <form
       className='typography-controls__group'
@@ -19,6 +20,7 @@ export default function Set({ props }) {
     >
       <div className='typography-controls__group-inner'>
         <header className='typography-controls__group-header'>
+          <Order renderIndex={renderIndex} props={props} />
           <h1 className='typography-controls__group-title'>{props.element}</h1>
           <RemoveElement props={props} />
         </header>
