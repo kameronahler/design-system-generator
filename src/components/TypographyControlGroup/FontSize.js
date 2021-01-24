@@ -2,10 +2,12 @@
 import React, { useContext, useState } from 'react'
 
 // components
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 import { Context } from '../App/App'
 
 export default function FontSize({ props }) {
   const global = useContext(Context)
+
   const [displayValue, setDisplayValue] = useState(
     parseInt(props.style.fontSize)
   )
@@ -20,15 +22,7 @@ export default function FontSize({ props }) {
       ...props,
       style: { ...props.style, fontSize: `${displayValue}px` },
     }
-    const newContext = { ...global.state }
-
-    newContext.typographyElementsActive.forEach((activeElementObj, i) => {
-      if (activeElementObj.element === props.element) {
-        newContext.typographyElementsActive.splice(i, 1, newEntry)
-      }
-    })
-
-    global.dispatch({ payload: newContext })
+    useUpdateActiveElement({ global, newEntry })
   }
 
   return (
