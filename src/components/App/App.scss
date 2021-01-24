@@ -1,4 +1,14 @@
 .app {
-  margin-right: 375px;
-  width: calc(100% - 375px);
+  display: grid;
+  grid-template-columns: 1fr 375px;
+
+  &__context-display {
+    background-color: #333;
+    color: white;
+    font-size: 12px;
+    height: 100vh;
+    line-height: 1.5;
+    overflow-y: auto;
+    padding: 1rem;
+  }
 }

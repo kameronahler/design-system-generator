@@ -3,7 +3,7 @@ import React, { useReducer } from 'react'
 import { initialContext } from './InitialContext'
 
 // components
-import ContextDisplay from '../ContextDisplay/ContextDisplay'
+import ContextDisplay from './ContextDisplay'
 import Typography from '../Typography/Typography'
 import './App.scss'
 
