@@ -5,6 +5,7 @@ import { initialContext } from './InitialContext'
 // components
 import ContextDisplay from '../ContextDisplay/ContextDisplay'
 import Typography from '../Typography/Typography'
+import './App.scss'
 
 // context export
 export const Context = React.createContext()
@@ -19,11 +20,11 @@ export default function App() {
   const [state, dispatch] = useReducer(_context_reducer, initialContext)
 
   return (
-    <>
+    <div className='app'>
       <Context.Provider value={{ state, dispatch }}>
-        <ContextDisplay />
         <Typography />
+        <ContextDisplay />
       </Context.Provider>
-    </>
+    </div>
   )
 }

@@ -1,11 +1,8 @@
 .typography-controls {
   &__group {
+    background-color: #333;
+    padding: 2rem;
     margin-bottom: 1rem;
-    padding: 1rem;
-
-    &:last-child {
-      margin-bottom: unset;
-    }
   }
 
   &__group-header {
@@ -22,11 +19,9 @@
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    margin-bottom: 1rem;
   }
 
   &__control-wrapper {
-    align-items: stretch;
     display: flex;
     flex-direction: column;
 
@@ -40,7 +35,17 @@
     }
   }
 
+  &__label {
+    &--order {
+      margin-bottom: unset;
+    }
+  }
+
   &__input {
     margin-top: auto;
+
+    &--order {
+      margin-top: unset;
+    }
   }
 }

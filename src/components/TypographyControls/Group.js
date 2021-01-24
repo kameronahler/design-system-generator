@@ -20,8 +20,8 @@ export default function Set({ renderIndex, props }) {
     >
       <div className='typography-controls__group-inner'>
         <header className='typography-controls__group-header'>
+          <h2 className='typography-controls__group-title'>{props.element}</h2>
           <Order renderIndex={renderIndex} props={props} />
-          <h1 className='typography-controls__group-title'>{props.element}</h1>
           <RemoveElement props={props} />
         </header>
         <div className='typography-controls__group-controls'>

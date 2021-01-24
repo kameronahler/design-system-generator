@@ -1,7 +1,8 @@
 .typography {
-  margin-left: 375px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   padding: 1rem;
-  width: calc(100% - 375px);
 
   &__header {
     align-items: center;
@@ -11,10 +12,12 @@
 
   &__heading {
     margin-bottom: unset;
-    margin-right: 1rem;
+    margin-right: auto;
   }
 
   &__live-example {
-    padding: 1rem;
+    flex-basis: 100%;
+    background-color: #eee;
+    padding: 2rem;
   }
 }

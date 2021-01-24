@@ -8,7 +8,7 @@ export default function LiveExample() {
   const global = useContext(Context)
 
   return (
-    <div className='typography__live-example'>
+    <>
       {global.state.typographyElementsActive.map(entry => {
         return (
           <div key={`display-${entry.element}`}>
@@ -16,6 +16,6 @@ export default function LiveExample() {
           </div>
         )
       })}
-    </div>
+    </>
   )
 }

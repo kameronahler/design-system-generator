@@ -61,9 +61,14 @@ export default function Order({ renderIndex, props }) {
 
   return (
     <div className='typography-controls__control-wrapper typography-controls__control-wrapper--order'>
-      <label htmlFor={`${props.element}-select-order`}></label>
+      <label
+        className='accessibly-hidden'
+        htmlFor={`${props.element}-select-order`}
+      >
+        Order
+      </label>
       <select
-        className='typography-controls__input'
+        className='typography-controls__input typography-controls__input--order'
         id={`${props.element}-select-order`}
         name={`${props.element}-select-order`}
         onChange={handleOrderChange}

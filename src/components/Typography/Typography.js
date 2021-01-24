@@ -40,7 +40,7 @@ export default function Typography() {
   return (
     <section className='typography'>
       <header className='typography__header'>
-        <h2 className='typography__heading'>Typography</h2>
+        <h1 className='typography__heading'>Typography</h1>
         <AddElement />
       </header>
       <section>
@@ -49,7 +49,7 @@ export default function Typography() {
         </header>
         <TypographyControls />
       </section>
-      <section>
+      <section className='typography__live-example'>
         <header className='accessibly-hidden'>
           <h2>Selected Element Controls</h2>
         </header>
