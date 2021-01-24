@@ -4,9 +4,25 @@ import React, { useContext } from 'react'
 // components
 import { Context } from '../App/App'
 
+// default export
 export default function AddElement() {
+  // state
   const global = useContext(Context)
 
+  // handlers
+  const handleSelectChange = e => {
+    const currentOption = e.currentTarget.querySelector('option:checked')
+    const newEntry = global.state.typographyElementsDefault.filter(
+      obj => obj.element === currentOption.value
+    )
+    const newContext = { ...global.state }
+
+    newContext.typographyElementsActive.push(newEntry[0])
+
+    global.dispatch({ payload: newContext })
+  }
+
+  // jsx
   const filterPossibleElements = () => {
     let possibleArr = global.state.typographyElementsPossible
     const inUseArr = global.state.typographyElementsActive.map(el => el.element)
@@ -21,18 +37,7 @@ export default function AddElement() {
 
   const availableElements = filterPossibleElements()
 
-  const handleSelectChange = e => {
-    const currentOption = e.currentTarget.querySelector('option:checked')
-    const newEntry = global.state.typographyElementsDefault.filter(
-      obj => obj.element === currentOption.value
-    )
-    const newContext = { ...global.state }
-
-    newContext.typographyElementsActive.push(newEntry[0])
-
-    global.dispatch({ payload: newContext })
-  }
-
+  // render
   return (
     <form
       className='typography__add-element'

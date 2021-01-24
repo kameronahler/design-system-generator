@@ -4,9 +4,12 @@ import React, { useContext } from 'react'
 // components
 import { Context } from '../App/App'
 
+// default export
 export default function LiveExample() {
+  // state
   const global = useContext(Context)
 
+  // render
   return (
     <>
       {global.state.typographyElementsActive.map(entry => {

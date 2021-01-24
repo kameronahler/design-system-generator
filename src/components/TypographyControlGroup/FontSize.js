@@ -5,19 +5,21 @@ import React, { useContext, useState } from 'react'
 import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 import { Context } from '../App/App'
 
+// default export
 export default function FontSize({ props }) {
+  // state
   const global = useContext(Context)
-
   const [displayValue, setDisplayValue] = useState(
     parseInt(props.style.fontSize)
   )
 
+  // handlers
   const handleFontSizeChange = e => {
     setDisplayValue(e.currentTarget.value)
   }
 
-  // TODO: consider a debounce in tandem or a save button component
   const handleFontSizeBlur = () => {
+    // TODO: consider a debounce in tandem or a save button component
     const newEntry = {
       ...props,
       style: { ...props.style, fontSize: `${displayValue}px` },
@@ -25,6 +27,7 @@ export default function FontSize({ props }) {
     useUpdateActiveElement({ global, newEntry })
   }
 
+  // render
   return (
     <div className='typography-control-group__input-wrapper'>
       <label

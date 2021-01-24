@@ -2,19 +2,22 @@
 import React, { useContext, useState } from 'react'
 
 // components
-import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 import { Context } from '../App/App'
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 
+// default export
 export default function Margin({ props }) {
+  // state
   const global = useContext(Context)
   const [displayValue, setDisplayValue] = useState(props.style.margin)
 
+  // handlers
   const handleMarginChange = e => {
     setDisplayValue(e.currentTarget.value)
   }
 
-  // TODO: consider a debounce in tandem or a save button component
   const handleMarginBlur = () => {
+    // TODO: consider a debounce in tandem or a save button component
     const newEntry = {
       ...props,
       style: { ...props.style, margin: `${displayValue}` },
@@ -22,6 +25,7 @@ export default function Margin({ props }) {
     useUpdateActiveElement({ global, newEntry })
   }
 
+  // render
   return (
     <div className='typography-control-group__input-wrapper'>
       <label

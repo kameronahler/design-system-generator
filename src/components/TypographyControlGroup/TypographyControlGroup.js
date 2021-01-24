@@ -11,9 +11,13 @@ import Margin from './Margin'
 import Order from './Order'
 import RemoveElement from './RemoveElement'
 import Text from './Text'
+
+// styles
 import './TypographyControlGroup.scss'
 
+// default export
 export default function TypographyControlGroup({ renderIndex, props }) {
+  // render
   return (
     <form
       className='typography-control-group'

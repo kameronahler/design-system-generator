@@ -4,15 +4,19 @@ import React, { useState, useContext } from 'react'
 // components
 import { Context } from './App'
 
+// default export
 export default function ContextDisplay() {
   // state
   const global = useContext(Context)
-  const globalFormatted = JSON.stringify(global.state, null, 2)
   const [open, setOpen] = useState(false)
 
   // handlers
   const handleTogglerClick = () => setOpen(!open)
 
+  // jsx
+  const globalFormatted = JSON.stringify(global.state, null, 2)
+
+  // render
   return (
     <div
       className={`app__context-display-wrapper${

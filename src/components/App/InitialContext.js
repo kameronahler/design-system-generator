@@ -1,5 +1,5 @@
 // context private
-export const initialContext = {
+export const INITIAL_CONTEXT = {
   typographyElementsPossible: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
   typographyElementsActive: [
     {

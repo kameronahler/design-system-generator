@@ -2,10 +2,11 @@
 import React, { useRef, useEffect, useContext } from 'react'
 
 // components
+import { Context } from '../App/App'
 import useGoogleFontsLink from '../../customHooks/useGoogleFontsLink'
 import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
-import { Context } from '../App/App'
 
+// default export
 export default function ElementControlFontWeight({ props }) {
   // state
   const global = useContext(Context)
@@ -23,7 +24,7 @@ export default function ElementControlFontWeight({ props }) {
 
       setTimeout(() => {
         updateContextFontWeight(newWeight)
-      }, 400)
+      }, 300)
     } catch (err) {
       console.log(err)
     }
@@ -67,12 +68,13 @@ export default function ElementControlFontWeight({ props }) {
     ]
   }
 
-  // normally you'd store state for the value of the select and what option was
-  // selected based on that because defaultValue does not update on rerender.
-  // in this case we have to fire a context which forces a cascade of rerendering
-  // so setting state here wouldn't do anything, so we just do this in the dom
-  // after the component has mounted
+  // useEffect
   const checkSelectedOptions = () => {
+    // normally you'd store state for the value of the select and what option was
+    // selected based on that because defaultValue does not update on rerender.
+    // in this case we have to fire a context which forces a cascade of rerendering
+    // so setting state here wouldn't do anything, so we just do this in the dom
+    // after the component has mounted
     const selectOptions = select.current.querySelectorAll('option')
 
     selectOptions.forEach(option => {
@@ -81,7 +83,6 @@ export default function ElementControlFontWeight({ props }) {
       }
     })
   }
-
   useEffect(checkSelectedOptions)
 
   return (

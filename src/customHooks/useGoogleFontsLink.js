@@ -3,7 +3,6 @@
   Creates a new link every time (currently)
 */
 
-// static
 const FAMILY_QUERY_PREFIX = process.env.GOOGLE_FONTS_FAMILY_QUERY_PREFIX
 const WEIGHT_QUERY_PREFIX = process.env.GOOGLE_FONTS_WEIGHT_QUERY_PREFIX
 const FONTS_CSS_URL = process.env.GOOGLE_FONTS_CSS_URL

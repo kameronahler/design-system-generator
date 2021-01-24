@@ -4,6 +4,7 @@ import React, { useEffect, useContext } from 'react'
 // components
 import { Context } from '../App/App'
 
+// default export
 export default function Order({ renderIndex, props }) {
   // state
   const global = useContext(Context)
@@ -40,12 +41,13 @@ export default function Order({ renderIndex, props }) {
     return jsx
   }
 
-  // normally you'd store state for the value of the select and what option was
-  // selected based on that because defaultValue does not update on rerender.
-  // in this case we have to fire a context which forces a cascade of rerendering
-  // so setting state here wouldn't do anything, so we just do this in the dom
-  // after the component has mounted
+  // useEffect
   const checkSelectedOptions = () => {
+    // normally you'd store state for the value of the select and what option was
+    // selected based on that because defaultValue does not update on rerender.
+    // in this case we have to fire a context which forces a cascade of rerendering
+    // so setting state here wouldn't do anything, so we just do this in the dom
+    // after the component has mounted
     const options = document.querySelectorAll(
       `#${props.element}-select-order option`
     )
@@ -56,9 +58,9 @@ export default function Order({ renderIndex, props }) {
       }
     })
   }
-
   useEffect(checkSelectedOptions)
 
+  // render
   return (
     <div className='typography-control-group__input-wrapper typography-control-group__input-wrapper--order'>
       <label

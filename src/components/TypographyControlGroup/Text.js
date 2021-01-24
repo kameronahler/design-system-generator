@@ -2,13 +2,16 @@
 import React, { useContext, useState } from 'react'
 
 // components
-import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 import { Context } from '../App/App'
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 
+// default export
 export default function Text({ props }) {
+  // state
   const global = useContext(Context)
   const [displayValue, setDisplayValue] = useState(props.text)
 
+  // handlers
   const handleTextChange = e => {
     setDisplayValue(e.currentTarget.value)
   }
@@ -21,6 +24,7 @@ export default function Text({ props }) {
     useUpdateActiveElement({ global, newEntry })
   }
 
+  // render
   return (
     <div className='typography-control-group__input-wrapper typography-control-group__input-wrapper--text'>
       <label

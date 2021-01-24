@@ -2,10 +2,11 @@
 import React, { useContext } from 'react'
 
 // components
+import { Context } from '../App/App'
 import useGoogleFontsLink from '../../customHooks/useGoogleFontsLink'
 import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
-import { Context } from '../App/App'
 
+// default export
 export default function FontFamily({ props }) {
   // state
   const global = useContext(Context)
@@ -18,7 +19,7 @@ export default function FontFamily({ props }) {
       await useGoogleFontsLink({ family: newFamily })
       setTimeout(() => {
         updateContextWithFamilyAndGoogleFontInfo(newFamily)
-      }, 400)
+      }, 300)
     } catch (err) {
       console.log(err)
     }
@@ -36,6 +37,7 @@ export default function FontFamily({ props }) {
     useUpdateActiveElement({ global, newEntry })
   }
 
+  // render
   return (
     <div className='typography-control-group__input-wrapper'>
       <label
