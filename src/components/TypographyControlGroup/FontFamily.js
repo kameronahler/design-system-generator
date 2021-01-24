@@ -2,12 +2,8 @@
 import React, { useContext } from 'react'
 
 // components
+import useGoogleFontsLink from '../../customHooks/useGoogleFontsLink'
 import { Context } from '../App/App'
-
-// static
-const GOOGLE_FONTS_CSS_URL = process.env.GOOGLE_FONTS_CSS_URL
-const GOOGLE_FONTS_FAMILY_QUERY_PREFIX =
-  process.env.GOOGLE_FONTS_FAMILY_QUERY_PREFIX
 
 export default function FontFamily({ props }) {
   // state
@@ -16,29 +12,15 @@ export default function FontFamily({ props }) {
   // handlers
   const handleFontFamilyChange = async e => {
     const newFamily = e.currentTarget.querySelector('option:checked').value
+
     try {
-      await addLinkToHead(newFamily)
+      await useGoogleFontsLink({ family: newFamily })
       setTimeout(() => {
         updateContextWithFamilyAndGoogleFontInfo(newFamily)
       }, 400)
     } catch (err) {
       console.log(err)
     }
-  }
-
-  const addLinkToHead = newFamily => {
-    // for now this creates a new link every time the user changes the font family
-    // tl;dr on why is that it simplifies getting font weights
-    const familyQueryString = `${newFamily.replace(/\s/, '+')}`
-    const newLink = document.createElement('link')
-    newLink.setAttribute('rel', 'stylesheet')
-    newLink.setAttribute(
-      'href',
-      GOOGLE_FONTS_CSS_URL +
-        GOOGLE_FONTS_FAMILY_QUERY_PREFIX +
-        familyQueryString
-    )
-    document.head.appendChild(newLink)
   }
 
   const updateContextWithFamilyAndGoogleFontInfo = newFamily => {

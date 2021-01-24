@@ -1,57 +1,40 @@
 // packages
-import React, { useContext } from 'react'
+import React, { useRef, useEffect, useContext } from 'react'
 
 // components
+import useGoogleFontsLink from '../../customHooks/useGoogleFontsLink'
 import { Context } from '../App/App'
-
-// static
-const GOOGLE_FONTS_FAMILY_QUERY_PREFIX =
-  process.env.GOOGLE_FONTS_FAMILY_QUERY_PREFIX
-const GOOGLE_FONTS_WEIGHT_QUERY_PREFIX =
-  process.env.GOOGLE_FONTS_WEIGHT_QUERY_PREFIX
-const GOOGLE_FONTS_CSS_URL = process.env.GOOGLE_FONTS_CSS_URL
 
 export default function ElementControlFontWeight({ props }) {
   // state
   const global = useContext(Context)
+  const select = useRef(null)
 
   // handlers
   const handleFontWeightChange = async e => {
-    const currentOption = e.currentTarget.querySelector('option:checked').value
+    const newWeight = e.currentTarget.querySelector('option:checked').value
+
     try {
-      await updateHeadLink(currentOption)
+      await useGoogleFontsLink({
+        family: props.style.fontFamily,
+        weight: newWeight,
+      })
+
       setTimeout(() => {
-        updateContextFontWeight(currentOption)
+        updateContextFontWeight(newWeight)
       }, 400)
     } catch (err) {
       console.log(err)
     }
   }
 
-  const updateHeadLink = currentOption => {
-    // TODO: urrently creates one-off links because google requires tuples to be sorted
-    // and i didn't feel like doing that now
-    // at minimum these could check for existing matches or use useRef
-    const familyQueryString = `${props.style.fontFamily.replace(/\s/, '+')}`
-    const newLink = document.createElement('link')
-    newLink.setAttribute('rel', 'stylesheet')
-    newLink.setAttribute(
-      'href',
-      GOOGLE_FONTS_CSS_URL +
-        GOOGLE_FONTS_FAMILY_QUERY_PREFIX +
-        familyQueryString +
-        GOOGLE_FONTS_WEIGHT_QUERY_PREFIX +
-        currentOption
-    )
-    document.head.appendChild(newLink)
-  }
-
-  const updateContextFontWeight = currentOption => {
+  const updateContextFontWeight = newWeight => {
     const newEntry = {
       ...props,
-      style: { ...props.style, fontWeight: currentOption },
+      style: { ...props.style, fontWeight: newWeight },
     }
     const newContext = { ...global.state }
+
     newContext.typographyElementsActive.forEach((activeElementObj, i) => {
       if (activeElementObj.element === props.element) {
         newContext.typographyElementsActive.splice(i, 1, newEntry)
@@ -69,14 +52,13 @@ export default function ElementControlFontWeight({ props }) {
     )
     jsxToDisplay = jsxToDisplay.map(weight => (
       <option
-        selected={weight === 'regular' ? true : false}
         key={`${props.element}-${props.style.fontFamily.replace(
           /\s/,
           ''
         )}-input-font-weight-${weight}`}
-        value={weight === 'regular' ? '400' : weight}
+        value={weight}
       >
-        {weight === 'regular' ? 'Normal' : weight}
+        {weight}
       </option>
     ))
   } else {
@@ -91,6 +73,24 @@ export default function ElementControlFontWeight({ props }) {
     ]
   }
 
+  // normally you'd store state for the value of the select and what option was
+  // selected based on that because defaultValue does not update on rerender.
+  // in this case we have to fire a context which forces a cascade of rerendering
+  // so setting state here wouldn't do anything, so we just do this in the dom
+  // after the component has mounted
+  const checkSelectedOptions = () => {
+    const selectOptions = select.current.querySelectorAll('option')
+
+    selectOptions.forEach(option => {
+      console.log(option.value)
+      if (option.value === props.style.fontWeight) {
+        option.selected = true
+      }
+    })
+  }
+
+  useEffect(checkSelectedOptions)
+
   return (
     <div className='typography-control-group__input-wrapper'>
       <label
@@ -102,6 +102,7 @@ export default function ElementControlFontWeight({ props }) {
       <select
         className='typography-control-group__input'
         id={`${props.element}-input-font-weight`}
+        ref={select}
         name={`${props.element}-input-font-weight`}
         onChange={handleFontWeightChange}
       >
