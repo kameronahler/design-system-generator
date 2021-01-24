@@ -21,10 +21,9 @@ export default function Typography() {
     try {
       const res = await axios.get(GOOGLE_FONTS_URL)
       const resFontsPossible = res.data.items.map(font => ({
+        category: font.category,
         family: font.family,
         variants: font.variants,
-        files: font.files,
-        category: font.category,
       }))
 
       const newContext = {
