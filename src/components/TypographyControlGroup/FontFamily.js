@@ -15,21 +15,21 @@ export default function FontFamily({ props }) {
 
   // handlers
   const handleFontFamilyChange = async e => {
-    const currentOption = e.currentTarget.querySelector('option:checked').value
+    const newFamily = e.currentTarget.querySelector('option:checked').value
     try {
-      await updateHeadLink(currentOption)
+      await addLinkToHead(newFamily)
       setTimeout(() => {
-        updateContextWithFamilyAndCurrentGoogleFont(currentOption)
+        updateContextWithFamilyAndGoogleFontInfo(newFamily)
       }, 400)
     } catch (err) {
       console.log(err)
     }
   }
 
-  const updateHeadLink = currentOption => {
+  const addLinkToHead = newFamily => {
     // for now this creates a new link every time the user changes the font family
     // tl;dr on why is that it simplifies getting font weights
-    const familyQueryString = `${currentOption.replace(/\s/, '+')}`
+    const familyQueryString = `${newFamily.replace(/\s/, '+')}`
     const newLink = document.createElement('link')
     newLink.setAttribute('rel', 'stylesheet')
     newLink.setAttribute(
@@ -41,14 +41,14 @@ export default function FontFamily({ props }) {
     document.head.appendChild(newLink)
   }
 
-  const updateContextWithFamilyAndCurrentGoogleFont = currentOption => {
+  const updateContextWithFamilyAndGoogleFontInfo = newFamily => {
     const googleFont = global.state.typographyFontsPossible.filter(
-      googleFont => googleFont.family === currentOption
+      googleFont => googleFont.family === newFamily
     )
 
     const newEntry = {
       ...props,
-      style: { ...props.style, fontFamily: currentOption },
+      style: { ...props.style, fontFamily: newFamily },
       googleFont: { ...googleFont[0] },
     }
 
