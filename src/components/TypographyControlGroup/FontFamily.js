@@ -72,10 +72,10 @@ export default function FontFamily({ props }) {
   }
 
   return (
-    <div className='typography-controls__control-wrapper'>
+    <div className='typography-control-group__wrapper'>
       <label htmlFor={`${props.element}-select-font-family`}>Font Family</label>
       <select
-        className='typography-controls__input'
+        className='typography-control-group__input'
         id={`${props.element}-select-font-family`}
         name={`${props.element}-select-font-family`}
         onChange={handleFontFamilyChange}

@@ -4,7 +4,7 @@ import axios from 'axios'
 
 // components
 import { Context } from '../App/App'
-import TypographyControls from '../TypographyControls/TypographyControls'
+import Controls from './Controls'
 import AddElement from './AddElement'
 import LiveExample from './LiveExample'
 import './Typography.scss'
@@ -47,7 +47,7 @@ export default function Typography() {
         <header className='accessibly-hidden'>
           <h2>Selected Element Controls</h2>
         </header>
-        <TypographyControls />
+        <Controls />
       </section>
       <section className='typography__live-example'>
         <header className='accessibly-hidden'>

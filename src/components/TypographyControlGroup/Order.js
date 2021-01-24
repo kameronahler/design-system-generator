@@ -60,7 +60,7 @@ export default function Order({ renderIndex, props }) {
   useEffect(checkSelectedOptions)
 
   return (
-    <div className='typography-controls__control-wrapper typography-controls__control-wrapper--order'>
+    <div className='typography-control-group__wrapper typography-control-group__wrapper--order'>
       <label
         className='accessibly-hidden'
         htmlFor={`${props.element}-select-order`}
@@ -68,7 +68,7 @@ export default function Order({ renderIndex, props }) {
         Order
       </label>
       <select
-        className='typography-controls__input typography-controls__input--order'
+        className='typography-control-group__input typography-control-group__input--order'
         id={`${props.element}-select-order`}
         name={`${props.element}-select-order`}
         onChange={handleOrderChange}

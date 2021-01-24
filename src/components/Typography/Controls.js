@@ -3,10 +3,9 @@ import React, { useContext } from 'react'
 
 // components
 import { Context } from '../App/App'
-import Group from './Group'
-import './TypographyControls.scss'
+import TypographyControlGroup from '../TypographyControlGroup/TypographyControlGroup'
 
-export default function TypographyControls() {
+export default function Controls() {
   const global = useContext(Context)
 
   return (
@@ -14,7 +13,7 @@ export default function TypographyControls() {
       {global.state.typographyElementsActive.map((entry, i) => {
         return (
           <li key={`control-${entry.element}`}>
-            <Group renderIndex={i} props={entry} />
+            <TypographyControlGroup renderIndex={i} props={entry} />
           </li>
         )
       })}

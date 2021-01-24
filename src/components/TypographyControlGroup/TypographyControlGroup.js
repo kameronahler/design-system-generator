@@ -11,20 +11,21 @@ import Margin from './Margin'
 import Order from './Order'
 import RemoveElement from './RemoveElement'
 import Text from './Text'
+import './TypographyControlGroup.scss'
 
-export default function Set({ renderIndex, props }) {
+export default function TypographyControlGroup({ renderIndex, props }) {
   return (
     <form
-      className='typography-controls__group'
+      className='typography-control-group'
       onSubmit={e => e.preventDefault()}
     >
-      <div className='typography-controls__group-inner'>
-        <header className='typography-controls__group-header'>
-          <h2 className='typography-controls__group-title'>{props.element}</h2>
+      <div className='typography-control-group__inner'>
+        <header className='typography-control-group__header'>
+          <h2 className='typography-control-group__title'>{props.element}</h2>
           <Order renderIndex={renderIndex} props={props} />
           <RemoveElement props={props} />
         </header>
-        <div className='typography-controls__group-controls'>
+        <div className='typography-control-group__controls'>
           <FontFamily props={props} />
           <FontWeight props={props} />
           <FontSize props={props} />

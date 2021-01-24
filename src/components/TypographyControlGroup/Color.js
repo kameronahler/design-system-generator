@@ -4,19 +4,19 @@ import React, { useContext, useState } from 'react'
 // components
 import { Context } from '../App/App'
 
-export default function LineHeight({ props }) {
+export default function Color({ props }) {
   const global = useContext(Context)
-  const [displayValue, setDisplayValue] = useState(props.style.lineHeight)
+  const [displayValue, setDisplayValue] = useState(props.style.color)
 
-  const handleLineHeightChange = e => {
+  const handleColorChange = e => {
     setDisplayValue(e.currentTarget.value)
   }
 
   // TODO: consider a debounce in tandem or a save button component
-  const handleLineHeightBlur = () => {
+  const handleColorBlur = () => {
     const newEntry = {
       ...props,
-      style: { ...props.style, lineHeight: `${displayValue}` },
+      style: { ...props.style, color: `${displayValue}` },
     }
     const newContext = { ...global.state }
 
@@ -30,14 +30,14 @@ export default function LineHeight({ props }) {
   }
 
   return (
-    <div className='typography-controls__control-wrapper'>
-      <label htmlFor={`${props.element}-input-line-height`}>Line Height</label>
+    <div className='typography-control-group__wrapper'>
+      <label htmlFor={`${props.element}-input-color`}>Color</label>
       <input
-        className='typography-controls__input'
-        id={`${props.element}-input-line-height`}
-        name={`${props.element}-input-line-height`}
-        onBlur={handleLineHeightBlur}
-        onChange={handleLineHeightChange}
+        className='typography-control-group__input'
+        id={`${props.element}-input-color`}
+        name={`${props.element}-input-color`}
+        onBlur={handleColorBlur}
+        onChange={handleColorChange}
         type='text'
         value={displayValue}
       ></input>

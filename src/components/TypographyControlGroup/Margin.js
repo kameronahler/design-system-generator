@@ -4,18 +4,19 @@ import React, { useContext, useState } from 'react'
 // components
 import { Context } from '../App/App'
 
-export default function Text({ props }) {
+export default function Margin({ props }) {
   const global = useContext(Context)
-  const [displayValue, setDisplayValue] = useState(props.text)
+  const [displayValue, setDisplayValue] = useState(props.style.margin)
 
-  const handleTextChange = e => {
+  const handleMarginChange = e => {
     setDisplayValue(e.currentTarget.value)
   }
 
-  const handleColorBlur = () => {
+  // TODO: consider a debounce in tandem or a save button component
+  const handleMarginBlur = () => {
     const newEntry = {
       ...props,
-      text: displayValue,
+      style: { ...props.style, margin: `${displayValue}` },
     }
     const newContext = { ...global.state }
 
@@ -29,14 +30,14 @@ export default function Text({ props }) {
   }
 
   return (
-    <div className='typography-controls__control-wrapper typography-controls__control-wrapper--text'>
-      <label htmlFor={`${props.element}-input-text`}>Text</label>
+    <div className='typography-control-group__wrapper'>
+      <label htmlFor={`${props.element}-input-margin`}>Margin (CSS)</label>
       <input
-        className='typography-controls__input'
-        id={`${props.element}-input-text`}
-        name={`${props.element}-input-text`}
-        onBlur={handleColorBlur}
-        onChange={handleTextChange}
+        className='typography-control-group__input'
+        id={`${props.element}-input-margin`}
+        name={`${props.element}-input-margin`}
+        onBlur={handleMarginBlur}
+        onChange={handleMarginChange}
         type='text'
         value={displayValue}
       ></input>

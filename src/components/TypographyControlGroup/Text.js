@@ -4,19 +4,18 @@ import React, { useContext, useState } from 'react'
 // components
 import { Context } from '../App/App'
 
-export default function Color({ props }) {
+export default function Text({ props }) {
   const global = useContext(Context)
-  const [displayValue, setDisplayValue] = useState(props.style.color)
+  const [displayValue, setDisplayValue] = useState(props.text)
 
-  const handleColorChange = e => {
+  const handleTextChange = e => {
     setDisplayValue(e.currentTarget.value)
   }
 
-  // TODO: consider a debounce in tandem or a save button component
   const handleColorBlur = () => {
     const newEntry = {
       ...props,
-      style: { ...props.style, color: `${displayValue}` },
+      text: displayValue,
     }
     const newContext = { ...global.state }
 
@@ -30,14 +29,14 @@ export default function Color({ props }) {
   }
 
   return (
-    <div className='typography-controls__control-wrapper'>
-      <label htmlFor={`${props.element}-input-color`}>Color</label>
+    <div className='typography-control-group__wrapper typography-control-group__wrapper--text'>
+      <label htmlFor={`${props.element}-input-text`}>Text</label>
       <input
-        className='typography-controls__input'
-        id={`${props.element}-input-color`}
-        name={`${props.element}-input-color`}
+        className='typography-control-group__input'
+        id={`${props.element}-input-text`}
+        name={`${props.element}-input-text`}
         onBlur={handleColorBlur}
-        onChange={handleColorChange}
+        onChange={handleTextChange}
         type='text'
         value={displayValue}
       ></input>

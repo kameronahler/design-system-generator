@@ -1,27 +1,25 @@
-.typography-controls {
-  &__group {
-    background-color: #333;
-    padding: 2rem;
-    margin-bottom: 1rem;
-  }
+.typography-control-group {
+  background-color: #333;
+  padding: 2rem;
+  margin-bottom: 1rem;
 
-  &__group-header {
+  &__header {
     display: flex;
     margin-bottom: 1rem;
   }
 
-  &__group-title {
+  &__title {
     margin-bottom: unset;
     margin-right: auto;
   }
 
-  &__group-controls {
+  &__controls {
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 
-  &__control-wrapper {
+  &__wrapper {
     display: flex;
     flex-direction: column;
 
