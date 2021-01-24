@@ -15,5 +15,12 @@ export default function RemoveElement({ props }) {
     global.dispatch({ payload: newContext })
   }
 
-  return <button onClick={handleClick}>Delete</button>
+  return (
+    <button
+      className='typography-control-group__input typography-control-group__input--remove'
+      onClick={handleClick}
+    >
+      Delete
+    </button>
+  )
 }
