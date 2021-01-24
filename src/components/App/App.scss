@@ -1,14 +1,32 @@
 .app {
   display: grid;
-  grid-template-columns: 1fr 375px;
+  grid-template-columns: 1fr auto;
 
-  &__context-display {
+  &__context-display-wrapper {
     background-color: #333;
     color: white;
     font-size: 12px;
     height: 100vh;
     line-height: 1.5;
-    overflow-y: auto;
-    padding: 1rem;
+    overflow: hidden;
+    width: 0;
+    position: relative;
+
+    &--open {
+      padding: 1rem;
+      width: 375px;
+      overflow-x: unset;
+      overflow-y: auto;
+    }
+  }
+
+  &__context-display-toggler {
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    place-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
   }
 }
