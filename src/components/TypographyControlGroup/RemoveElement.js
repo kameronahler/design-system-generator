@@ -2,6 +2,7 @@
 import React, { useContext } from 'react'
 
 // components
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 import { Context } from '../App/App'
 
 export default function RemoveElement({ props }) {
@@ -11,8 +12,7 @@ export default function RemoveElement({ props }) {
     const newEntry = global.state.typographyElementsActive.filter(
       obj => obj.element !== props.element
     )
-    const newContext = { ...global.state, typographyElementsActive: newEntry }
-    global.dispatch({ payload: newContext })
+    useUpdateActiveElement({ global, newEntry })
   }
 
   return (

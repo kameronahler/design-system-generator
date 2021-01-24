@@ -2,6 +2,7 @@
 import React, { useContext, useState } from 'react'
 
 // components
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 import { Context } from '../App/App'
 
 export default function Margin({ props }) {
@@ -18,15 +19,7 @@ export default function Margin({ props }) {
       ...props,
       style: { ...props.style, margin: `${displayValue}` },
     }
-    const newContext = { ...global.state }
-
-    newContext.typographyElementsActive.forEach((activeElementObj, i) => {
-      if (activeElementObj.element === props.element) {
-        newContext.typographyElementsActive.splice(i, 1, newEntry)
-      }
-    })
-
-    global.dispatch({ payload: newContext })
+    useUpdateActiveElement({ global, newEntry })
   }
 
   return (

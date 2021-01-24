@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 
 // components
 import useGoogleFontsLink from '../../customHooks/useGoogleFontsLink'
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 import { Context } from '../App/App'
 
 export default function FontFamily({ props }) {
@@ -27,22 +28,12 @@ export default function FontFamily({ props }) {
     const googleFont = global.state.typographyFontsPossible.filter(
       googleFont => googleFont.family === newFamily
     )
-
     const newEntry = {
       ...props,
       style: { ...props.style, fontFamily: newFamily },
       googleFont: { ...googleFont[0] },
     }
-
-    const newContext = { ...global.state }
-
-    newContext.typographyElementsActive.forEach((activeElementObj, i) => {
-      if (activeElementObj.element === props.element) {
-        newContext.typographyElementsActive.splice(i, 1, newEntry)
-      }
-    })
-
-    global.dispatch({ payload: newContext })
+    useUpdateActiveElement({ global, newEntry })
   }
 
   return (

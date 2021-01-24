@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useContext } from 'react'
 
 // components
 import useGoogleFontsLink from '../../customHooks/useGoogleFontsLink'
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 import { Context } from '../App/App'
 
 export default function ElementControlFontWeight({ props }) {
@@ -33,14 +34,7 @@ export default function ElementControlFontWeight({ props }) {
       ...props,
       style: { ...props.style, fontWeight: newWeight },
     }
-    const newContext = { ...global.state }
-
-    newContext.typographyElementsActive.forEach((activeElementObj, i) => {
-      if (activeElementObj.element === props.element) {
-        newContext.typographyElementsActive.splice(i, 1, newEntry)
-      }
-    })
-    global.dispatch({ payload: newContext })
+    useUpdateActiveElement({ global, newEntry })
   }
 
   // jsx
