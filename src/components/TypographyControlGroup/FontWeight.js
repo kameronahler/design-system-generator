@@ -82,7 +82,6 @@ export default function ElementControlFontWeight({ props }) {
     const selectOptions = select.current.querySelectorAll('option')
 
     selectOptions.forEach(option => {
-      console.log(option.value)
       if (option.value === props.style.fontWeight) {
         option.selected = true
       }
