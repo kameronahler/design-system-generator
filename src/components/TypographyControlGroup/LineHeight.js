@@ -30,8 +30,13 @@ export default function LineHeight({ props }) {
   }
 
   return (
-    <div className='typography-control-group__wrapper'>
-      <label htmlFor={`${props.element}-input-line-height`}>Line Height</label>
+    <div className='typography-control-group__input-wrapper'>
+      <label
+        className='typography-control-group__label'
+        htmlFor={`${props.element}-input-line-height`}
+      >
+        Line Height
+      </label>
       <input
         className='typography-control-group__input'
         id={`${props.element}-input-line-height`}

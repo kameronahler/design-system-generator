@@ -60,7 +60,7 @@ export default function Order({ renderIndex, props }) {
   useEffect(checkSelectedOptions)
 
   return (
-    <div className='typography-control-group__wrapper typography-control-group__wrapper--order'>
+    <div className='typography-control-group__input-wrapper typography-control-group__input-wrapper--order'>
       <label
         className='accessibly-hidden'
         htmlFor={`${props.element}-select-order`}

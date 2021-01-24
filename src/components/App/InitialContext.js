@@ -5,7 +5,7 @@ export const initialContext = {
     {
       element: 'h1',
       style: {
-        color: '#111',
+        color: '#fff',
         fontFamily: 'sans-serif',
         fontSize: '48px',
         fontWeight: 'Normal',
@@ -17,7 +17,7 @@ export const initialContext = {
     {
       element: 'p',
       style: {
-        color: '#111',
+        color: '#fff',
         fontFamily: 'sans-serif',
         fontSize: '16px',
         fontWeight: 'Normal',
@@ -31,7 +31,7 @@ export const initialContext = {
     {
       element: 'p',
       style: {
-        color: '#111',
+        color: '#fff',
         fontFamily: 'sans-serif',
         fontSize: '16px',
         fontWeight: 'Normal',
@@ -43,7 +43,7 @@ export const initialContext = {
     {
       element: 'h1',
       style: {
-        color: '#111',
+        color: '#fff',
         fontFamily: 'sans-serif',
         fontSize: '48px',
         fontWeight: 'Normal',
@@ -55,7 +55,7 @@ export const initialContext = {
     {
       element: 'h2',
       style: {
-        color: '#111',
+        color: '#fff',
         fontFamily: 'sans-serif',
         fontSize: '32px',
         fontWeight: 'Normal',
@@ -67,7 +67,7 @@ export const initialContext = {
     {
       element: 'h3',
       style: {
-        color: '#111',
+        color: '#fff',
         fontFamily: 'sans-serif',
         fontSize: '24px',
         fontWeight: 'Normal',
@@ -79,7 +79,7 @@ export const initialContext = {
     {
       element: 'h4',
       style: {
-        color: '#111',
+        color: '#fff',
         fontFamily: 'sans-serif',
         fontSize: '20px',
         fontWeight: 'Normal',
@@ -91,7 +91,7 @@ export const initialContext = {
     {
       element: 'h5',
       style: {
-        color: '#111',
+        color: '#fff',
         fontFamily: 'sans-serif',
         fontSize: '18px',
         fontWeight: 'Normal',
@@ -103,7 +103,7 @@ export const initialContext = {
     {
       element: 'h6',
       style: {
-        color: '#111',
+        color: '#fff',
         fontFamily: 'sans-serif',
         fontSize: '16px',
         fontWeight: 'Normal',

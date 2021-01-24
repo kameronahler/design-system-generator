@@ -30,8 +30,13 @@ export default function Color({ props }) {
   }
 
   return (
-    <div className='typography-control-group__wrapper'>
-      <label htmlFor={`${props.element}-input-color`}>Color</label>
+    <div className='typography-control-group__input-wrapper'>
+      <label
+        className='typography-control-group__label'
+        htmlFor={`${props.element}-input-color`}
+      >
+        Color
+      </label>
       <input
         className='typography-control-group__input'
         id={`${props.element}-input-color`}

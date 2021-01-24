@@ -32,8 +32,13 @@ export default function FontSize({ props }) {
   }
 
   return (
-    <div className='typography-control-group__wrapper'>
-      <label htmlFor={`${props.element}-input-font-size`}>Font Size (px)</label>
+    <div className='typography-control-group__input-wrapper'>
+      <label
+        className='typography-control-group__label'
+        htmlFor={`${props.element}-input-font-size`}
+      >
+        Font Size (px)
+      </label>
       <input
         className='typography-control-group__input'
         id={`${props.element}-input-font-size`}

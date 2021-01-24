@@ -92,8 +92,13 @@ export default function ElementControlFontWeight({ props }) {
   }
 
   return (
-    <div className='typography-control-group__wrapper'>
-      <label htmlFor={`${props.element}-input-font-weight`}>Font Weight</label>
+    <div className='typography-control-group__input-wrapper'>
+      <label
+        className='typography-control-group__label'
+        htmlFor={`${props.element}-input-font-weight`}
+      >
+        Font Weight
+      </label>
       <select
         className='typography-control-group__input'
         id={`${props.element}-input-font-weight`}

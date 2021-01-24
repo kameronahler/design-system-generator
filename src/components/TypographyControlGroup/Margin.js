@@ -30,8 +30,13 @@ export default function Margin({ props }) {
   }
 
   return (
-    <div className='typography-control-group__wrapper'>
-      <label htmlFor={`${props.element}-input-margin`}>Margin (CSS)</label>
+    <div className='typography-control-group__input-wrapper'>
+      <label
+        className='typography-control-group__label'
+        htmlFor={`${props.element}-input-margin`}
+      >
+        Margin (CSS)
+      </label>
       <input
         className='typography-control-group__input'
         id={`${props.element}-input-margin`}

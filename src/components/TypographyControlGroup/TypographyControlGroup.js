@@ -21,7 +21,7 @@ export default function TypographyControlGroup({ renderIndex, props }) {
     >
       <div className='typography-control-group__inner'>
         <header className='typography-control-group__header'>
-          <h2 className='typography-control-group__title'>{props.element}</h2>
+          <h2 className='typography-control-group__heading'>{props.element}</h2>
         </header>
         <div className='typography-control-group__controls'>
           <FontFamily props={props} />

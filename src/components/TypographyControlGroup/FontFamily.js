@@ -72,8 +72,13 @@ export default function FontFamily({ props }) {
   }
 
   return (
-    <div className='typography-control-group__wrapper'>
-      <label htmlFor={`${props.element}-select-font-family`}>Font Family</label>
+    <div className='typography-control-group__input-wrapper'>
+      <label
+        className='typography-control-group__label'
+        htmlFor={`${props.element}-select-font-family`}
+      >
+        Font Family
+      </label>
       <select
         className='typography-control-group__input'
         id={`${props.element}-select-font-family`}

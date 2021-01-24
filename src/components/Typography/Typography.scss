@@ -11,13 +11,15 @@
   }
 
   &__heading {
+    color: #aaa;
     margin-bottom: unset;
     margin-right: auto;
   }
 
   &__live-example {
+    background-color: #333;
+    color: #fff;
     flex-basis: 100%;
-    background-color: #eee;
     padding: 2rem;
   }
 }

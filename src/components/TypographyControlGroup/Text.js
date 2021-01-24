@@ -29,8 +29,13 @@ export default function Text({ props }) {
   }
 
   return (
-    <div className='typography-control-group__wrapper typography-control-group__wrapper--text'>
-      <label htmlFor={`${props.element}-input-text`}>Text</label>
+    <div className='typography-control-group__input-wrapper typography-control-group__input-wrapper--text'>
+      <label
+        className='typography-control-group__label'
+        htmlFor={`${props.element}-input-text`}
+      >
+        Text
+      </label>
       <input
         className='typography-control-group__input'
         id={`${props.element}-input-text`}
