@@ -27,26 +27,18 @@ export default function FontFamily({ props }) {
   }
 
   const updateHeadLink = currentOption => {
+    // for now this creates a new link every time the user changes the font family
+    // tl;dr on why is that it simplifies getting font weights
     const familyQueryString = `${currentOption.replace(/\s/, '+')}`
-
-    const linkExists = document.head.querySelector(
-      //TODO: could probably use useRef here
-      `link[href*="${familyQueryString}"]`
+    const newLink = document.createElement('link')
+    newLink.setAttribute('rel', 'stylesheet')
+    newLink.setAttribute(
+      'href',
+      GOOGLE_FONTS_CSS_URL +
+        GOOGLE_FONTS_FAMILY_QUERY_PREFIX +
+        familyQueryString
     )
-
-    if (linkExists) {
-      return
-    } else {
-      const newLink = document.createElement('link')
-      newLink.setAttribute('rel', 'stylesheet')
-      newLink.setAttribute(
-        'href',
-        GOOGLE_FONTS_CSS_URL +
-          GOOGLE_FONTS_FAMILY_QUERY_PREFIX +
-          familyQueryString
-      )
-      document.head.appendChild(newLink)
-    }
+    document.head.appendChild(newLink)
   }
 
   const updateContextWithFamilyAndCurrentGoogleFont = currentOption => {
