@@ -60,7 +60,13 @@ export default function Typography() {
         </header>
         <Controls />
       </section>
-      <section className='typography__live-example'>
+      <section
+        className={`typography__live-example${
+          global.state.typographyVerticalRhythm.enabled
+            ? ' typography__live-example--vertical-rhythm'
+            : ''
+        }`}
+      >
         <header className='accessibly-hidden'>
           <h2>Selected Element Controls</h2>
         </header>

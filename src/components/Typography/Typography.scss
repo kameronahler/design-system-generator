@@ -21,6 +21,26 @@
     color: #fff;
     flex-basis: 100%;
     padding: 2rem;
+
+    &--vertical-rhythm {
+      position: relative;
+      z-index: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 2rem;
+        top: 2rem;
+        bottom: 2rem;
+        right: 2rem;
+        background: repeating-linear-gradient(
+          transparent,
+          transparent 23px,
+          #555 24px
+        );
+        z-index: -1;
+      }
+    }
   }
 
   &__vertical-rhythm {

@@ -99,6 +99,7 @@ export default function TypographyVerticalRhythm() {
         lineHeight: lineHeight,
       })
 
+      // TODO: round up or down when determining whether we need another row for bottom margin
       console.log(
         item,
         'size',
