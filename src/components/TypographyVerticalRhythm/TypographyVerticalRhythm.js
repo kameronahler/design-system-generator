@@ -5,7 +5,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Context } from '../App/App'
 
 // default export
-export default function VerticalRhythm() {
+export default function TypographyVerticalRhythm() {
   // state
   const global = useContext(Context)
   const [baseFontSize, setBaseFontSize] = useState(

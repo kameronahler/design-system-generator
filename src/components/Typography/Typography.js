@@ -6,7 +6,7 @@ import axios from 'axios'
 import { Context } from '../App/App'
 import AddElement from './AddElement'
 import Controls from './Controls'
-import VerticalRhythm from './VerticalRhythm'
+import TypographyVerticalRhythm from '../TypographyVerticalRhythm/TypographyVerticalRhythm'
 import LiveExample from './LiveExample'
 
 // styles
@@ -52,7 +52,7 @@ export default function Typography() {
         <header className='accessibly-hidden'>
           <h2 className='typography__heading'>Global options</h2>
         </header>
-        <VerticalRhythm />
+        <TypographyVerticalRhythm />
       </section>
       <section>
         <header className='accessibly-hidden'>
