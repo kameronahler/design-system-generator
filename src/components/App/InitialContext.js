@@ -1,5 +1,11 @@
 // context private
 export const INITIAL_CONTEXT = {
+  typographyVerticalRhythm: {
+    enabled: false,
+    baseFontSize: 16,
+    lineHeight: 1.5,
+    scale: 1.5,
+  },
   typographyElementsPossible: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
   typographyElementsActive: [
     {
