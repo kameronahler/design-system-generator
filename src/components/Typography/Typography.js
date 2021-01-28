@@ -4,7 +4,7 @@ import axios from 'axios'
 
 // components
 import { Context } from '../App/App'
-import AddElement from './AddElement'
+import TypographyElementsActive from '../TypographyElementsActive/TypographyElementsActive'
 import Controls from './Controls'
 import TypographyVerticalRhythm from '../TypographyVerticalRhythm/TypographyVerticalRhythm'
 import LiveExample from './LiveExample'
@@ -46,7 +46,7 @@ export default function Typography() {
     <section className='typography'>
       <header className='typography__header'>
         <h1 className='typography__heading'>Typography</h1>
-        <AddElement />
+        <TypographyElementsActive />
       </header>
       <section className='typography__vertical-rhythm'>
         <header className='accessibly-hidden'>

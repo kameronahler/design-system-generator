@@ -49,19 +49,19 @@ export default function TypographyVerticalRhythm() {
       })
 
       // TODO: round up or down when determining whether we need another row for bottom margin
-      console.log(
-        item,
-        'size',
-        size,
-        'line-height',
-        lineHeight,
-        'total height needed',
-        totalLineHeightNeeded,
-        'margin-bottom',
-        totalLineHeightNeeded - lineHeight + row,
-        'margin-top',
-        row
-      )
+      // console.log(
+      //   item,
+      //   'size',
+      //   size,
+      //   'line-height',
+      //   lineHeight,
+      //   'total height needed',
+      //   totalLineHeightNeeded,
+      //   'margin-bottom',
+      //   totalLineHeightNeeded - lineHeight + row,
+      //   'margin-top',
+      //   row
+      // )
 
       size = Math.floor(s * size)
       lineHeight = Math.floor(l * size)
