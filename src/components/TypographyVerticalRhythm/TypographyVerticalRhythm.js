@@ -4,6 +4,9 @@ import React, { useState, useEffect, useContext } from 'react'
 // components
 import { Context } from '../App/App'
 
+// style
+import './TypographyVerticalRhythm.scss'
+
 // default export
 export default function TypographyVerticalRhythm() {
   // state
@@ -121,81 +124,84 @@ export default function TypographyVerticalRhythm() {
 
   // render
   return (
-    <form onSubmit={e => e.preventDefault()}>
-      <div>
+    <div className='typography-vertical-rhythm'>
+      <div className='typography-vertical-rhythm__input-wrapper'>
         <input
           checked={global.state.typographyVerticalRhythm.enabled}
+          className='typography-vertical-rhythm__input'
           id='typography-vertical-rhythm-toggle'
           onChange={handleTogglerChange}
           type='checkbox'
         />
         <label
-          className='display-inline-block'
+          className='typography-vertical-rhythm__label'
           htmlFor='typography-vertical-rhythm-toggle'
         >
           &nbsp;Vertical Rhythm
         </label>
       </div>
-      {global.state.typographyVerticalRhythm.enabled ? (
-        <div className='display-flex'>
-          <div>
-            <label
-              className='display-inline-block'
-              htmlFor='typography-vertical-rhythm-size'
-            >
-              Base font size
-            </label>
-            <input
-              className='display-inline-block'
-              id='typography-vertical-rhythm-size'
-              onBlur={handleSizeBlur}
-              onChange={e => {
-                setBaseFontSize(e.currentTarget.currentValue)
-              }}
-              type='number'
-              value={baseFontSize}
-            />
+      <form onSubmit={e => e.preventDefault()}>
+        {global.state.typographyVerticalRhythm.enabled ? (
+          <div className='typography-vertical-rhythm__controls-group'>
+            <div className='typography-vertical-rhythm__input-wrapper'>
+              <label
+                className='typography-vertical-rhythm__label'
+                htmlFor='typography-vertical-rhythm-size'
+              >
+                Base font size
+              </label>
+              <input
+                className='typography-vertical-rhythm__input'
+                id='typography-vertical-rhythm-size'
+                onBlur={handleSizeBlur}
+                onChange={e => {
+                  setBaseFontSize(e.currentTarget.currentValue)
+                }}
+                type='number'
+                value={baseFontSize}
+              />
+            </div>
+            <div className='typography-vertical-rhythm__input-wrapper'>
+              <label
+                className='typography-vertical-rhythm__label'
+                htmlFor='typography-vertical-rhythm-line-height'
+              >
+                Line Height
+              </label>
+              <input
+                className='typography-vertical-rhythm__input'
+                id='typography-vertical-rhythm-line-height'
+                onBlur={handleLineHeightBlur}
+                onChange={e => {
+                  setLineHeight(e.currentTarget.currentValue)
+                }}
+                step='.05'
+                type='number'
+                value={lineHeight}
+              />
+            </div>
+            <div className='typography-vertical-rhythm__input-wrapper'>
+              <label
+                class='typography-vertical-rhythm__label'
+                htmlFor='typography-vertical-rhythm-scale'
+              >
+                Scale
+              </label>
+              <input
+                className='typography-vertical-rhythm__label'
+                id='typography-vertical-rhythm-scale'
+                onBlur={handleScaleBlur}
+                onChange={e => {
+                  setScale(e.currentTarget.currentValue)
+                }}
+                step='.05'
+                type='number'
+                value={scale}
+              />
+            </div>
           </div>
-          <div>
-            <label
-              className='display-inline-block'
-              htmlFor='typography-vertical-rhythm-line-height'
-            >
-              Line Height
-            </label>
-            <input
-              className='display-inline-block'
-              id='typography-vertical-rhythm-line-height'
-              onBlur={handleLineHeightBlur}
-              onChange={e => {
-                setLineHeight(e.currentTarget.currentValue)
-              }}
-              step='.05'
-              type='number'
-              value={lineHeight}
-            />
-          </div>
-          <div>
-            <label
-              className='display-inline-block'
-              htmlFor='typography-vertical-rhythm-scale'
-            >
-              Scale
-            </label>
-            <input
-              className='display-inline-block'
-              id='typography-vertical-rhythm-scale'
-              onBlur={handleScaleBlur}
-              onChange={e => {
-                setScale(e.currentTarget.currentValue)
-              }}
-              step='.05'
-              type='number'
-              value={scale}
-            />
-          </div>
-        </div>
-      ) : null}
-    </form>
+        ) : null}
+      </form>
+    </div>
   )
 }
