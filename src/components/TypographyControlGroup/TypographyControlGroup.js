@@ -9,7 +9,6 @@ import FontWeight from './FontWeight'
 import LineHeight from './LineHeight'
 import Margin from './Margin'
 import Order from './Order'
-import RemoveElement from './RemoveElement'
 import Text from './Text'
 
 // styles
@@ -38,7 +37,6 @@ export default function TypographyControlGroup({ renderIndex, props }) {
         </div>
         <div>
           <Order renderIndex={renderIndex} props={props} />
-          <RemoveElement props={props} />
         </div>
       </div>
     </form>
