@@ -13,7 +13,7 @@ export default function Controls() {
   // render
   return (
     <ul>
-      {global.state.typographyElementsActive.map((entry, i) => {
+      {global.state.elementsActive.map((entry, i) => {
         return (
           <li key={`control-${entry.element}`}>
             <TypographyControlGroup renderIndex={i} props={entry} />

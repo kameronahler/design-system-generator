@@ -10,7 +10,7 @@ export default function Element({ type }) {
   const global = useContext(Context)
   const [checked, setChecked] = useState(() => {
     let isChecked = false
-    global.state.typographyElementsActive.forEach(activeEl => {
+    global.state.elementsActive.forEach(activeEl => {
       if (activeEl.element === type) {
         isChecked = true
       }
@@ -30,16 +30,16 @@ export default function Element({ type }) {
 
   const handleActivate = currentValue => {
     const newContext = { ...global.state }
-    const newEntry = global.state.typographyElementsDefault.filter(
+    const newEntry = global.state.elementsDefault.filter(
       obj => obj.element === currentValue
     )
-    newContext.typographyElementsActive.push(newEntry[0])
+    newContext.elementsActive.push(newEntry[0])
     setChecked(!checked)
     global.dispatch({ payload: newContext })
   }
 
   const handleDeactivate = currentValue => {
-    const newEntry = [...global.state.typographyElementsActive]
+    const newEntry = [...global.state.elementsActive]
     newEntry.map((activeEl, index) => {
       if (currentValue === activeEl.element) {
         newEntry.splice(index, 1)
@@ -47,7 +47,7 @@ export default function Element({ type }) {
     })
     const newContext = {
       ...global.state,
-      typographyElementsActive: newEntry,
+      elementsActive: newEntry,
     }
     setChecked(!checked)
     global.dispatch({ payload: newContext })

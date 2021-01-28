@@ -8,32 +8,32 @@ export default function BaseFontSize() {
   // state
   const global = useContext(Context)
   const [baseFontSize, setBaseFontSize] = useState(
-    global.state.typographyVerticalRhythm.baseFontSize
+    global.state.verticalRhythm.baseFontSize
   )
 
   // handlers
   const handleSizeBlur = e => {
     const newEntry = {
-      ...global.state.typographyVerticalRhythm,
+      ...global.state.verticalRhythm,
       baseFontSize: e.currentTarget.value,
     }
 
     const newContext = {
       ...global.state,
-      typographyVerticalRhythm: newEntry,
+      verticalRhythm: newEntry,
     }
 
     global.dispatch({ payload: newContext })
   }
   const handleLineHeightBlur = e => {
     const newEntry = {
-      ...global.state.typographyVerticalRhythm,
+      ...global.state.verticalRhythm,
       lineHeight: e.currentTarget.value,
     }
 
     const newContext = {
       ...global.state,
-      typographyVerticalRhythm: newEntry,
+      verticalRhythm: newEntry,
     }
 
     global.dispatch({ payload: newContext })

@@ -33,7 +33,7 @@ export default function Typography() {
 
       const newContext = {
         ...global.state,
-        typographyFontsPossible: resFontsPossible,
+        fontsPossible: resFontsPossible,
       }
       global.dispatch({ payload: newContext })
     } catch (err) {
@@ -54,7 +54,7 @@ export default function Typography() {
         </header>
         <TypographyVerticalRhythm />
       </section>
-      {!global.state.typographyVerticalRhythm.enabled ? (
+      {!global.state.verticalRhythm.enabled ? (
         <section>
           <header className='accessibly-hidden'>
             <h2>Selected Element Controls</h2>
@@ -64,7 +64,7 @@ export default function Typography() {
       ) : null}
       <section
         className={`typography__live-example${
-          global.state.typographyVerticalRhythm.enabled
+          global.state.verticalRhythm.enabled
             ? ' typography__live-example--vertical-rhythm'
             : ''
         }`}

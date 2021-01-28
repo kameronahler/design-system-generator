@@ -16,10 +16,10 @@ export default function Order({ renderIndex, props }) {
     )
     const newContext = { ...global.state }
 
-    newContext.typographyElementsActive.forEach((activeElementObj, i) => {
+    newContext.elementsActive.forEach((activeElementObj, i) => {
       if (activeElementObj.element === props.element) {
-        newContext.typographyElementsActive.splice(i, 1)
-        newContext.typographyElementsActive.splice(incomingIndex, 0, props)
+        newContext.elementsActive.splice(i, 1)
+        newContext.elementsActive.splice(incomingIndex, 0, props)
       }
     })
 
@@ -30,7 +30,7 @@ export default function Order({ renderIndex, props }) {
   const jsxToDisplay = () => {
     const jsx = []
 
-    for (let i = 0; i < global.state.typographyElementsActive.length; i++) {
+    for (let i = 0; i < global.state.elementsActive.length; i++) {
       jsx.push(
         <option key={`${props.element}-select-order-${i}`} value={i}>
           {i + 1}

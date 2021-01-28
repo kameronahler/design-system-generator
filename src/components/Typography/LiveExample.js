@@ -12,7 +12,7 @@ export default function LiveExample() {
   // render
   return (
     <>
-      {global.state.typographyElementsActive.map(entry => {
+      {global.state.elementsActive.map(entry => {
         return (
           <div key={`display-${entry.element}`}>
             <entry.element style={entry.style}>{entry.text}</entry.element>

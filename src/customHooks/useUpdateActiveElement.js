@@ -10,9 +10,9 @@
 export default function useUpdateActiveElement({ global, newEntry }) {
   const newContext = { ...global.state }
 
-  newContext.typographyElementsActive.forEach((activeElement, i) => {
+  newContext.elementsActive.forEach((activeElement, i) => {
     if (activeElement.element === newEntry.element) {
-      newContext.typographyElementsActive.splice(i, 1, newEntry)
+      newContext.elementsActive.splice(i, 1, newEntry)
     }
   })
 

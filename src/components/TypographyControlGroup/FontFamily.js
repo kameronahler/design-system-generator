@@ -26,7 +26,7 @@ export default function FontFamily({ props }) {
   }
 
   const updateContextWithFamilyAndGoogleFontInfo = newFamily => {
-    const googleFont = global.state.typographyFontsPossible.filter(
+    const googleFont = global.state.fontsPossible.filter(
       googleFont => googleFont.family === newFamily
     )
     const newEntry = {
@@ -55,7 +55,7 @@ export default function FontFamily({ props }) {
         <option default value={props.style.fontFamily}>
           {props.style.fontFamily}
         </option>
-        {global.state.typographyFontsPossible.map(availableFont => {
+        {global.state.fontsPossible.map(availableFont => {
           return (
             <option
               key={props.element + '-' + availableFont.family}

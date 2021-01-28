@@ -34,9 +34,9 @@ export default function TypographyVerticalRhythm() {
 
   useEffect(() => {
     const items = ['p', 'h6', 'h5', 'h4', 'h3', 'h2', 'h1']
-    const b = global.state.typographyVerticalRhythm.baseFontSize
-    const s = global.state.typographyVerticalRhythm.scale
-    const l = global.state.typographyVerticalRhythm.lineHeight
+    const b = global.state.verticalRhythm.baseFontSize
+    const s = global.state.verticalRhythm.scale
+    const l = global.state.verticalRhythm.lineHeight
     const row = b * s
 
     let size = b
@@ -78,7 +78,7 @@ export default function TypographyVerticalRhythm() {
         className='typography-vertical-rhythm__form'
         onSubmit={e => e.preventDefault()}
       >
-        {global.state.typographyVerticalRhythm.enabled ? (
+        {global.state.verticalRhythm.enabled ? (
           <div className='typography-vertical-rhythm__controls-group'>
             <BaseFontSize />
             <LineHeight />

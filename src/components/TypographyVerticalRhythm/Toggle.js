@@ -10,8 +10,7 @@ export default function Toggle() {
   // handlers
   const handleTogglerChange = () => {
     const newContext = { ...global.state }
-    newContext.typographyVerticalRhythm.enabled = !newContext
-      .typographyVerticalRhythm.enabled
+    newContext.verticalRhythm.enabled = !newContext.verticalRhythm.enabled
     global.dispatch({ payload: newContext })
   }
 
@@ -19,7 +18,7 @@ export default function Toggle() {
   return (
     <div className='typography-vertical-rhythm__input-wrapper'>
       <input
-        checked={global.state.typographyVerticalRhythm.enabled}
+        checked={global.state.verticalRhythm.enabled}
         className='typography-vertical-rhythm__input'
         id='typography-vertical-rhythm-toggle'
         onChange={handleTogglerChange}

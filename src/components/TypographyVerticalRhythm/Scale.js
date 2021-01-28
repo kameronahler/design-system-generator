@@ -7,20 +7,18 @@ import { Context } from '../App/App'
 export default function Scale() {
   // state
   const global = useContext(Context)
-  const [scale, setScale] = useState(
-    global.state.typographyVerticalRhythm.scale
-  )
+  const [scale, setScale] = useState(global.state.verticalRhythm.scale)
 
   // handlers
   const handleScaleBlur = e => {
     const newEntry = {
-      ...global.state.typographyVerticalRhythm,
+      ...global.state.verticalRhythm,
       scale: e.currentTarget.value,
     }
 
     const newContext = {
       ...global.state,
-      typographyVerticalRhythm: newEntry,
+      verticalRhythm: newEntry,
     }
 
     global.dispatch({ payload: newContext })

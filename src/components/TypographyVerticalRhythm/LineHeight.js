@@ -9,19 +9,19 @@ export default function LineHeight() {
   const global = useContext(Context)
 
   const [lineHeight, setLineHeight] = useState(
-    global.state.typographyVerticalRhythm.lineHeight
+    global.state.verticalRhythm.lineHeight
   )
 
   // handlers
   const handleLineHeightBlur = e => {
     const newEntry = {
-      ...global.state.typographyVerticalRhythm,
+      ...global.state.verticalRhythm,
       lineHeight: e.currentTarget.value,
     }
 
     const newContext = {
       ...global.state,
-      typographyVerticalRhythm: newEntry,
+      verticalRhythm: newEntry,
     }
 
     global.dispatch({ payload: newContext })

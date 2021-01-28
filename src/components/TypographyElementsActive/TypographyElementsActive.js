@@ -23,7 +23,7 @@ export default function TypographyElementsActive() {
         <h2>Select an typography element to add</h2>
       </header>
       <div className='typography-elements-active__inner'>
-        {global.state.typographyElementsPossible.map(el => {
+        {global.state.elementsPossible.map(el => {
           return (
             <div key={el} className='typography-elements-active__input-wrapper'>
               <Element type={el} />
