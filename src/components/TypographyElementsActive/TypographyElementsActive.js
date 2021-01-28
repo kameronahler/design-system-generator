@@ -5,6 +5,9 @@ import React, { useContext } from 'react'
 import { Context } from '../App/App'
 import Element from './Element'
 
+// style
+import './TypographyElementsActive.scss'
+
 // default export
 export default function TypographyElementsActive() {
   // state
@@ -13,15 +16,19 @@ export default function TypographyElementsActive() {
   // render
   return (
     <form
-      className='typography__active-elements-form'
+      className='typography-elements-active__form'
       onSubmit={e => e.preventDefault()}
     >
       <header className='accessibly-hidden'>
         <h2>Select an typography element to add</h2>
       </header>
-      <div className='typography__active-elements-wrapper'>
+      <div className='typography-elements-active__inner'>
         {global.state.typographyElementsPossible.map(el => {
-          return <Element key={el} type={el} />
+          return (
+            <div key={el} className='typography-elements-active__input-wrapper'>
+              <Element type={el} />
+            </div>
+          )
         })}
       </div>
     </form>

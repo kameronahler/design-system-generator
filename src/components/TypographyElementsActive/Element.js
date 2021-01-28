@@ -54,9 +54,9 @@ export default function Element({ type }) {
   }
 
   return (
-    <div className='typography__active-elements-input-wrapper'>
+    <>
       <input
-        className='typography__active-elements-input'
+        className='typography-elements-active__input'
         defaultChecked={checked}
         onChange={handleChange}
         id={`activate-elements-${type}`}
@@ -64,11 +64,11 @@ export default function Element({ type }) {
         value={type}
       />
       <label
-        className='typography__active-elements-label'
+        className='typography-elements-active__label'
         htmlFor={`activate-elements-${type}`}
       >
         {type}
       </label>
-    </div>
+    </>
   )
 }
