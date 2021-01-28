@@ -36,7 +36,7 @@ export default function Scale() {
         Scale
       </label>
       <input
-        className='typography-vertical-rhythm__label'
+        className='typography-vertical-rhythm__input'
         id='typography-vertical-rhythm-scale'
         onBlur={handleScaleBlur}
         onChange={e => {

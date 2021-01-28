@@ -71,10 +71,13 @@ export default function TypographyVerticalRhythm() {
   // render
   return (
     <div className='typography-vertical-rhythm'>
-      <div>
+      <div className='typography-vertical-rhythm__toggle'>
         <Toggle />
       </div>
-      <form onSubmit={e => e.preventDefault()}>
+      <form
+        className='typography-vertical-rhythm__form'
+        onSubmit={e => e.preventDefault()}
+      >
         {global.state.typographyVerticalRhythm.enabled ? (
           <div className='typography-vertical-rhythm__controls-group'>
             <BaseFontSize />

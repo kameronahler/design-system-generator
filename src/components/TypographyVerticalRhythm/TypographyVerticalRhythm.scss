@@ -3,6 +3,10 @@
   display: flex;
   min-height: 1.5rem;
 
+  &__form {
+    margin-left: auto;
+  }
+
   &__controls-group {
     align-items: center;
     display: flex;
@@ -17,5 +21,9 @@
   &__input-wrapper {
     align-items: center;
     display: flex;
+  }
+
+  &__input-wrapper:last-child &__input {
+    margin-right: unset;
   }
 }
