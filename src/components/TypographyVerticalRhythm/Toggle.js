@@ -1,12 +1,17 @@
 // packages
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 
 // components
 import { Context } from '../App/App'
+import useElementIsActive from '../../customHooks/useElementIsActive'
 
 export default function Toggle() {
   // state
   const global = useContext(Context)
+  const requiredElementPresent = useElementIsActive({
+    global: global,
+    element: 'p',
+  })
 
   // handlers
   const handleTogglerChange = () => {
@@ -21,6 +26,7 @@ export default function Toggle() {
       <input
         checked={global.state.verticalRhythm.enabled}
         className='typography-vertical-rhythm__input'
+        disabled={!requiredElementPresent}
         id='typography-vertical-rhythm-toggle'
         onChange={handleTogglerChange}
         type='checkbox'
