@@ -38,6 +38,7 @@ export default function FontSize({ props }) {
       </label>
       <input
         className='typography-control-group__input'
+        disabled={global.state.verticalRhythm.enabled ? true : false}
         id={`${props.element}-input-font-size`}
         name={`${props.element}-input-font-size`}
         onChange={handleFontSizeChange}

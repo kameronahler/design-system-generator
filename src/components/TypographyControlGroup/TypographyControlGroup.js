@@ -29,10 +29,10 @@ export default function TypographyControlGroup({ renderIndex, props }) {
         <div className='typography-control-group__controls'>
           <FontFamily props={props} />
           <FontWeight props={props} />
+          <Color props={props} />
           <FontSize props={props} />
           <LineHeight props={props} />
           <Margin props={props} />
-          <Color props={props} />
           <Text props={props} />
         </div>
         <div>

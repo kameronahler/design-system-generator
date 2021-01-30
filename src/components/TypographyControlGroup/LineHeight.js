@@ -36,6 +36,7 @@ export default function LineHeight({ props }) {
       </label>
       <input
         className='typography-control-group__input'
+        disabled={global.state.verticalRhythm.enabled ? true : false}
         id={`${props.element}-input-line-height`}
         name={`${props.element}-input-line-height`}
         onBlur={handleLineHeightBlur}

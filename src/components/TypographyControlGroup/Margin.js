@@ -36,6 +36,7 @@ export default function Margin({ props }) {
       </label>
       <input
         className='typography-control-group__input'
+        disabled={global.state.verticalRhythm.enabled ? true : false}
         id={`${props.element}-input-margin`}
         name={`${props.element}-input-margin`}
         onBlur={handleMarginBlur}
