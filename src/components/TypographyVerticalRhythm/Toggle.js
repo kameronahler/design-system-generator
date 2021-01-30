@@ -5,6 +5,7 @@ import React, { useContext } from 'react'
 import { Context } from '../App/App'
 
 export default function Toggle() {
+  // state
   const global = useContext(Context)
 
   // handlers

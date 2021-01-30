@@ -46,7 +46,6 @@ export default function Typography() {
     <section className='typography'>
       <header className='typography__header'>
         <h1 className='typography__heading'>Typography</h1>
-        <TypographyElementsActive />
       </header>
       <section className='typography__vertical-rhythm'>
         <header className='accessibly-hidden'>
@@ -59,6 +58,7 @@ export default function Typography() {
           <header className='accessibly-hidden'>
             <h2>Selected Element Controls</h2>
           </header>
+          <TypographyElementsActive />
           <Controls />
         </section>
       ) : null}

@@ -1,7 +1,9 @@
 .typography-vertical-rhythm {
-  align-items: center;
-  display: flex;
   min-height: 1.5rem;
+
+  &__toggle {
+    margin-bottom: 1rem;
+  }
 
   &__form {
     margin-left: auto;

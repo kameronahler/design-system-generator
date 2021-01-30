@@ -19,9 +19,6 @@ export default function TypographyElementsActive() {
       className='typography-elements-active__form'
       onSubmit={e => e.preventDefault()}
     >
-      <header className='accessibly-hidden'>
-        <h2>Select an typography element to add</h2>
-      </header>
       <div className='typography-elements-active__inner'>
         {global.state.elementsPossible.map(el => {
           return (
