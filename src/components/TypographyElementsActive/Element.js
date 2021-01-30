@@ -58,6 +58,7 @@ export default function Element({ type }) {
       <input
         className='typography-elements-active__input'
         defaultChecked={checked}
+        disabled={global.state.verticalRhythm.enabled && type === 'p'}
         onChange={handleChange}
         id={`activate-elements-${type}`}
         type='checkbox'
