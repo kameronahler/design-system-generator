@@ -1,11 +1,5 @@
 // context private
 export const INITIAL_CONTEXT = {
-  verticalRhythm: {
-    enabled: false,
-    baseFontSize: 16,
-    lineHeight: 1.5,
-    scale: 1.5,
-  },
   elementsPossible: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
   elementsActive: [
     {
@@ -16,9 +10,14 @@ export const INITIAL_CONTEXT = {
         fontSize: '48px',
         fontWeight: 'regular',
         lineHeight: '1.2',
-        margin: '0',
+        marginBottom: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
+      verticalRhythmOverrides: {
+        fontSize: null,
+        lineHeight: null,
+        marginBottom: null,
+      },
     },
     {
       element: 'p',
@@ -28,9 +27,14 @@ export const INITIAL_CONTEXT = {
         fontSize: '16px',
         fontWeight: 'regular',
         lineHeight: '1.5',
-        margin: '0',
+        marginBottom: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
+      verticalRhythmOverrides: {
+        fontSize: null,
+        lineHeight: null,
+        marginBottom: null,
+      },
     },
   ],
   elementsDefault: [
@@ -42,9 +46,14 @@ export const INITIAL_CONTEXT = {
         fontSize: '16px',
         fontWeight: 'regular',
         lineHeight: '1.5',
-        margin: '0',
+        marginBottom: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
+      verticalRhythmOverrides: {
+        fontSize: null,
+        lineHeight: null,
+        marginBottom: null,
+      },
     },
     {
       element: 'h1',
@@ -54,9 +63,14 @@ export const INITIAL_CONTEXT = {
         fontSize: '48px',
         fontWeight: 'regular',
         lineHeight: '1.2',
-        margin: '0',
+        marginBottom: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
+      verticalRhythmOverrides: {
+        fontSize: null,
+        lineHeight: null,
+        marginBottom: null,
+      },
     },
     {
       element: 'h2',
@@ -66,9 +80,14 @@ export const INITIAL_CONTEXT = {
         fontSize: '32px',
         fontWeight: 'regular',
         lineHeight: '1.2',
-        margin: '0',
+        marginBottom: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
+      verticalRhythmOverrides: {
+        fontSize: null,
+        lineHeight: null,
+        marginBottom: null,
+      },
     },
     {
       element: 'h3',
@@ -78,9 +97,14 @@ export const INITIAL_CONTEXT = {
         fontSize: '24px',
         fontWeight: 'regular',
         lineHeight: '1.2',
-        margin: '0',
+        marginBottom: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
+      verticalRhythmOverrides: {
+        fontSize: null,
+        lineHeight: null,
+        marginBottom: null,
+      },
     },
     {
       element: 'h4',
@@ -90,9 +114,14 @@ export const INITIAL_CONTEXT = {
         fontSize: '20px',
         fontWeight: 'regular',
         lineHeight: '1.2',
-        margin: '0',
+        marginBottom: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
+      verticalRhythmOverrides: {
+        fontSize: null,
+        lineHeight: null,
+        marginBottom: null,
+      },
     },
     {
       element: 'h5',
@@ -102,9 +131,14 @@ export const INITIAL_CONTEXT = {
         fontSize: '18px',
         fontWeight: 'regular',
         lineHeight: '1.2',
-        margin: '0',
+        marginBottom: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
+      verticalRhythmOverrides: {
+        fontSize: null,
+        lineHeight: null,
+        marginBottom: null,
+      },
     },
     {
       element: 'h6',
@@ -114,10 +148,16 @@ export const INITIAL_CONTEXT = {
         fontSize: '16px',
         fontWeight: 'regular',
         lineHeight: '1.2',
-        margin: '0',
+        marginBottom: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
+      verticalRhythmOverrides: {
+        fontSize: null,
+        lineHeight: null,
+        marginBottom: null,
+      },
     },
   ],
   fontsPossible: ['Loading...'],
+  verticalRhythmEnabled: false,
 }

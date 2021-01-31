@@ -5,13 +5,13 @@ import React, { useState, useContext } from 'react'
 import { Context } from '../App/App'
 
 // default export
-export default function Element({ type }) {
+export default function Element({ element }) {
   // state
   const global = useContext(Context)
   const [checked, setChecked] = useState(() => {
     let isChecked = false
     global.state.elementsActive.forEach(activeEl => {
-      if (activeEl.element === type) {
+      if (activeEl.element === element) {
         isChecked = true
       }
     })
@@ -58,17 +58,17 @@ export default function Element({ type }) {
       <input
         className='typography-elements-active__input'
         defaultChecked={checked}
-        disabled={global.state.verticalRhythm.enabled && type === 'p'}
+        disabled={global.state.verticalRhythmEnabled && element === 'p'}
         onChange={handleChange}
-        id={`activate-elements-${type}`}
+        id={`activate-elements-${element}`}
         type='checkbox'
-        value={type}
+        value={element}
       />
       <label
         className='typography-elements-active__label'
-        htmlFor={`activate-elements-${type}`}
+        htmlFor={`activate-elements-${element}`}
       >
-        {type}
+        {element}
       </label>
     </>
   )

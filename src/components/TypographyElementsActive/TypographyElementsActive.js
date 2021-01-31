@@ -23,7 +23,7 @@ export default function TypographyElementsActive() {
         {global.state.elementsPossible.map(el => {
           return (
             <div key={el} className='typography-elements-active__input-wrapper'>
-              <Element type={el} />
+              <Element element={el} />
             </div>
           )
         })}

@@ -3,6 +3,7 @@ import React, { useEffect, useContext } from 'react'
 
 // components
 import { Context } from '../App/App'
+import useGetActiveElement from '../../customHooks/useGetActiveElement'
 import Toggle from './Toggle'
 import BaseFontSize from './BaseFontSize'
 import LineHeight from './LineHeight'
@@ -17,7 +18,7 @@ export default function TypographyVerticalRhythm() {
   const global = useContext(Context)
 
   // useEffect
-  const getMinLineHeight = ({ rowHeight, lineHeight }) => {
+  const numberOfRowsNeeded = ({ rowHeight, lineHeight }) => {
     let diff = rowHeight - lineHeight
     let i = 1
 
@@ -33,38 +34,33 @@ export default function TypographyVerticalRhythm() {
   }
 
   useEffect(() => {
-    const items = ['p', 'h6', 'h5', 'h4', 'h3', 'h2', 'h1']
-    const b = global.state.verticalRhythm.baseFontSize
-    const s = global.state.verticalRhythm.scale
-    const l = global.state.verticalRhythm.lineHeight
-    const row = b * s
-
-    let size = b
-    let lineHeight = l * b
-
-    items.forEach(item => {
-      const totalLineHeightNeeded = getMinLineHeight({
-        rowHeight: row,
-        lineHeight: lineHeight,
-      })
-
+    const p = useGetActiveElement({ global: global, element: 'p' })
+    global.state.elementsActive.forEach(activeEl => {
+      // const totalLineHeightNeeded = numberOfRowsNeeded({
+      //   rowHeight: row,
+      //   lineHeight: lineHeight,
+      // })
       // TODO: round up or down when determining whether we need another row for bottom margin
       // console.log(
+      //   numberOfItems,
       //   item,
-      //   'size',
-      //   size,
-      //   'line-height',
+      //   'fs',
+      //   fs,
+      //   'lineHeight',
       //   lineHeight,
-      //   'total height needed',
+      //   'totalLineHeightNeeded',
       //   totalLineHeightNeeded,
       //   'margin-bottom',
-      //   totalLineHeightNeeded - lineHeight + row,
-      //   'margin-top',
-      //   row
+      //   totalLineHeightNeeded - lineHeight + row
       // )
-
-      size = Math.floor(s * size)
-      lineHeight = Math.floor(l * size)
+      // fs = Math.floor(scale * fs)
+      // lh = Math.floor(lineHeight * fs)
+      // {
+      //   fontSize:,
+      //   lineHeight:,
+      //   marginBottom:,
+      //   marginTop:,
+      // }
     })
   })
 
@@ -78,11 +74,11 @@ export default function TypographyVerticalRhythm() {
         className='typography-vertical-rhythm__form'
         onSubmit={e => e.preventDefault()}
       >
-        {global.state.verticalRhythm.enabled ? (
+        {global.state.verticalRhythmEnabled ? (
           <div className='typography-vertical-rhythm__controls-group'>
-            <BaseFontSize />
-            <LineHeight />
-            <Scale />
+            {/* <BaseFontSize />
+            <LineHeight /> */}
+            {/* <Scale /> */}
           </div>
         ) : null}
       </form>

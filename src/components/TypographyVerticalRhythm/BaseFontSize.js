@@ -3,40 +3,22 @@ import React, { useContext, useState } from 'react'
 
 // components
 import { Context } from '../App/App'
+import useGetActiveElement from '../../customHooks/useGetActiveElement'
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 
 export default function BaseFontSize() {
   // state
   const global = useContext(Context)
-  const [baseFontSize, setBaseFontSize] = useState(
-    global.state.verticalRhythm.baseFontSize
-  )
+  const [baseFontSize, setBaseFontSize] = useState(() => {
+    const p = useGetActiveElement({ global: global, element: 'p' })
+    return parseInt(p.style.fontSize)
+  })
 
   // handlers
   const handleSizeBlur = e => {
-    const newEntry = {
-      ...global.state.verticalRhythm,
-      baseFontSize: e.currentTarget.value,
-    }
-
-    const newContext = {
-      ...global.state,
-      verticalRhythm: newEntry,
-    }
-
-    global.dispatch({ payload: newContext })
-  }
-  const handleLineHeightBlur = e => {
-    const newEntry = {
-      ...global.state.verticalRhythm,
-      lineHeight: e.currentTarget.value,
-    }
-
-    const newContext = {
-      ...global.state,
-      verticalRhythm: newEntry,
-    }
-
-    global.dispatch({ payload: newContext })
+    const newEntry = useGetActiveElement({ global: global, element: 'p' })
+    newEntry.verticalRhythmOverrides.fontSize = `${baseFontSize}px`
+    useUpdateActiveElement({ global, newEntry })
   }
 
   // render
@@ -53,7 +35,7 @@ export default function BaseFontSize() {
         id='typography-vertical-rhythm-size'
         onBlur={handleSizeBlur}
         onChange={e => {
-          setBaseFontSize(e.currentTarget.currentValue)
+          setBaseFontSize(parseInt(e.currentTarget.value))
         }}
         type='number'
         value={baseFontSize}

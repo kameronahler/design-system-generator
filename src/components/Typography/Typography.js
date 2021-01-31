@@ -63,7 +63,7 @@ export default function Typography() {
 
       <section
         className={`typography__live-example${
-          global.state.verticalRhythm.enabled
+          global.state.verticalRhythmEnabled
             ? ' typography__live-example--vertical-rhythm'
             : ''
         }`}
