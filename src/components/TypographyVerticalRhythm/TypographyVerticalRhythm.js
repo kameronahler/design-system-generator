@@ -4,6 +4,7 @@ import React, { useEffect, useContext } from 'react'
 // components
 import { Context } from '../App/App'
 import useGetActiveElement from '../../customHooks/useGetActiveElement'
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 import Toggle from './Toggle'
 import BaseFontSize from './BaseFontSize'
 import LineHeight from './LineHeight'
@@ -34,34 +35,28 @@ export default function TypographyVerticalRhythm() {
   }
 
   useEffect(() => {
-    const p = useGetActiveElement({ global: global, element: 'p' })
-    global.state.elementsActive.forEach(activeEl => {
-      // const totalLineHeightNeeded = numberOfRowsNeeded({
-      //   rowHeight: row,
-      //   lineHeight: lineHeight,
-      // })
-      // TODO: round up or down when determining whether we need another row for bottom margin
-      // console.log(
-      //   numberOfItems,
-      //   item,
-      //   'fs',
-      //   fs,
-      //   'lineHeight',
-      //   lineHeight,
-      //   'totalLineHeightNeeded',
-      //   totalLineHeightNeeded,
-      //   'margin-bottom',
-      //   totalLineHeightNeeded - lineHeight + row
-      // )
-      // fs = Math.floor(scale * fs)
-      // lh = Math.floor(lineHeight * fs)
-      // {
-      //   fontSize:,
-      //   lineHeight:,
-      //   marginBottom:,
-      //   marginTop:,
-      // }
-    })
+    // const elementsActive = [...global.state.elementsActive]
+    // TODO: round up or down when determining whether we need another row for bottom margin
+    // global.state.elementsActive.forEach(activeEl => {
+    //   const totalLineHeightNeeded = numberOfRowsNeeded({
+    //     rowHeight: row,
+    //     lineHeight: lineHeight,
+    //   })
+    //   console.log(
+    //     numberOfItems,
+    //     item,
+    //     'fs',
+    //     fs,
+    //     'lineHeight',
+    //     lineHeight,
+    //     'totalLineHeightNeeded',
+    //     totalLineHeightNeeded,
+    //     'margin-bottom',
+    //     totalLineHeightNeeded - lineHeight + row
+    //   )
+    //   fs = Math.floor(scale * fs)
+    //   lh = Math.floor(lineHeight * fs)
+    // })
   })
 
   // render

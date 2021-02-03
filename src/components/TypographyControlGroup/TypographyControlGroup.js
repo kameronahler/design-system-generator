@@ -7,7 +7,8 @@ import FontFamily from './FontFamily'
 import FontSize from './FontSize'
 import FontWeight from './FontWeight'
 import LineHeight from './LineHeight'
-import Margin from './Margin'
+import MarginBottom from './MarginBottom'
+import MarginTop from './MarginTop'
 import Order from './Order'
 import Text from './Text'
 
@@ -32,7 +33,8 @@ export default function TypographyControlGroup({ renderIndex, props }) {
           <Color props={props} />
           <FontSize props={props} />
           <LineHeight props={props} />
-          <Margin props={props} />
+          <MarginBottom props={props} />
+          <MarginTop props={props} />
           <Text props={props} />
         </div>
         <div>

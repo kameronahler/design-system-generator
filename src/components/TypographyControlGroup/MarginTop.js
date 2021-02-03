@@ -6,10 +6,10 @@ import { Context } from '../App/App'
 import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 
 // default export
-export default function Margin({ props }) {
+export default function MarginTop({ props }) {
   // state
   const global = useContext(Context)
-  const [displayValue, setDisplayValue] = useState(props.style.margin)
+  const [displayValue, setDisplayValue] = useState(props.style.marginTop)
 
   // handlers
   const handleMarginChange = e => {
@@ -20,7 +20,7 @@ export default function Margin({ props }) {
     // TODO: consider a debounce in tandem or a save button component
     const newEntry = {
       ...props,
-      style: { ...props.style, marginBottom: `${displayValue}px` },
+      style: { ...props.style, marginTop: `${displayValue}px` },
     }
     useUpdateActiveElement({ global, newEntry })
   }
@@ -32,16 +32,16 @@ export default function Margin({ props }) {
         className='typography-control-group__label'
         htmlFor={`${props.element}-input-margin`}
       >
-        Bottom Margin (px)
+        Top Margin (px)
       </label>
       <input
         className='typography-control-group__input'
         disabled={global.state.verticalRhythmEnabled ? true : false}
-        id={`${props.element}-input-margin`}
-        name={`${props.element}-input-margin`}
+        id={`${props.element}-input-margin-top`}
+        name={`${props.element}-input-margin-top`}
         onBlur={handleMarginBlur}
         onChange={handleMarginChange}
-        type='text'
+        type='number'
         value={displayValue}
       ></input>
     </div>
