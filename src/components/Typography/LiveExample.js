@@ -18,8 +18,6 @@ export default function LiveExample() {
       style.marginBottom = entry.verticalRhythm.marginBottom
       style.marginTop = entry.verticalRhythm.marginTop
     }
-
-    console.log(entry)
     return style
   }
 
