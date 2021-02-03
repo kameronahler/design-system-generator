@@ -9,13 +9,29 @@ export default function LiveExample() {
   // state
   const global = useContext(Context)
 
+  const getStyle = entry => {
+    const style = { ...entry.style }
+
+    if (global.state.verticalRhythmEnabled) {
+      style.fontSize = entry.verticalRhythm.fontSize
+      style.lineHeight = entry.verticalRhythm.lineHeight
+      style.marginBottom = entry.verticalRhythm.marginBottom
+      style.marginTop = entry.verticalRhythm.marginTop
+    }
+
+    console.log(entry)
+    return style
+  }
+
   // render
   return (
     <>
-      {global.state.elementsActive.map(entry => {
+      {global.state.elementsActive.map(activeEl => {
         return (
-          <div key={`display-${entry.element}`}>
-            <entry.element style={entry.style}>{entry.text}</entry.element>
+          <div key={`display-${activeEl.element}`}>
+            <activeEl.element style={getStyle(activeEl)}>
+              {activeEl.text}
+            </activeEl.element>
           </div>
         )
       })}
