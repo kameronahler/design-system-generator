@@ -8,7 +8,7 @@ import { Context } from './App'
 export default function ContextDisplay() {
   // state
   const global = useContext(Context)
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   // handlers
   const handleTogglerClick = () => setOpen(!open)

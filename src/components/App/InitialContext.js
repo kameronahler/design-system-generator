@@ -14,7 +14,7 @@ export const INITIAL_CONTEXT = {
         marginTop: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
-      verticalRhythmOverrides: {
+      verticalRhythm: {
         fontSize: null,
         lineHeight: null,
         marginBottom: null,
@@ -33,7 +33,7 @@ export const INITIAL_CONTEXT = {
         marginTop: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
-      verticalRhythmOverrides: {
+      verticalRhythm: {
         fontSize: null,
         lineHeight: null,
         marginBottom: null,
@@ -54,7 +54,7 @@ export const INITIAL_CONTEXT = {
         marginTop: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
-      verticalRhythmOverrides: {
+      verticalRhythm: {
         fontSize: null,
         lineHeight: null,
         marginBottom: null,
@@ -73,7 +73,7 @@ export const INITIAL_CONTEXT = {
         marginTop: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
-      verticalRhythmOverrides: {
+      verticalRhythm: {
         fontSize: null,
         lineHeight: null,
         marginBottom: null,
@@ -92,7 +92,7 @@ export const INITIAL_CONTEXT = {
         marginTop: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
-      verticalRhythmOverrides: {
+      verticalRhythm: {
         fontSize: null,
         lineHeight: null,
         marginBottom: null,
@@ -111,7 +111,7 @@ export const INITIAL_CONTEXT = {
         marginTop: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
-      verticalRhythmOverrides: {
+      verticalRhythm: {
         fontSize: null,
         lineHeight: null,
         marginBottom: null,
@@ -130,7 +130,7 @@ export const INITIAL_CONTEXT = {
         marginTop: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
-      verticalRhythmOverrides: {
+      verticalRhythm: {
         fontSize: null,
         lineHeight: null,
         marginBottom: null,
@@ -149,7 +149,7 @@ export const INITIAL_CONTEXT = {
         marginTop: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
-      verticalRhythmOverrides: {
+      verticalRhythm: {
         fontSize: null,
         lineHeight: null,
         marginBottom: null,
@@ -168,7 +168,7 @@ export const INITIAL_CONTEXT = {
         marginTop: '0',
       },
       text: 'Lorem ipsum dolor sit amet',
-      verticalRhythmOverrides: {
+      verticalRhythm: {
         fontSize: null,
         lineHeight: null,
         marginBottom: null,

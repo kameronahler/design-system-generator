@@ -17,7 +17,7 @@ export default function BaseFontSize() {
   // handlers
   const handleSizeBlur = e => {
     const newEntry = useGetActiveElement({ global: global, element: 'p' })
-    newEntry.verticalRhythmOverrides.fontSize = `${baseFontSize}px`
+    newEntry.verticalRhythm.fontSize = `${baseFontSize}px`
     useUpdateActiveElement({ global, newEntry })
   }
 
