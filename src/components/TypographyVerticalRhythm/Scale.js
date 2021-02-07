@@ -3,25 +3,22 @@ import React, { useContext, useState } from 'react'
 
 // components
 import { Context } from '../App/App'
+import useGetActiveElement from '../../customHooks/useGetActiveElement'
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 
 export default function Scale() {
   // state
   const global = useContext(Context)
-  const [scale, setScale] = useState(global.state.verticalRhythm.scale)
+  const [scale, setScale] = useState(() => {
+    const p = useGetActiveElement({ global: global, element: 'p' })
+    return p.verticalRhythm.scale
+  })
 
   // handlers
   const handleScaleBlur = e => {
-    const newEntry = {
-      ...global.state.verticalRhythm,
-      scale: e.currentTarget.value,
-    }
-
-    const newContext = {
-      ...global.state,
-      verticalRhythm: newEntry,
-    }
-
-    global.dispatch({ payload: newContext })
+    const newEntry = useGetActiveElement({ global: global, element: 'p' })
+    newEntry.verticalRhythm.scale = scale
+    useUpdateActiveElement({ global, newEntry })
   }
 
   // render
@@ -38,7 +35,7 @@ export default function Scale() {
         id='typography-vertical-rhythm-scale'
         onBlur={handleScaleBlur}
         onChange={e => {
-          setScale(e.currentTarget.currentValue)
+          setScale(e.currentTarget.value)
         }}
         step='.05'
         type='number'

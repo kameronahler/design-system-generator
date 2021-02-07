@@ -30,7 +30,7 @@ export default function TypographyVerticalRhythm() {
           <div className='typography-vertical-rhythm__controls-group'>
             <BaseFontSize />
             <LineHeight />
-            {/* <Scale /> */}
+            <Scale />
           </div>
         ) : null}
       </form>
