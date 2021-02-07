@@ -1,5 +1,5 @@
 // packages
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 
 // components
 import { Context } from '../App/App'
@@ -15,61 +15,6 @@ import './TypographyVerticalRhythm.scss'
 export default function TypographyVerticalRhythm() {
   // state
   const global = useContext(Context)
-
-  // useEffect
-  // const numberOfRowsNeeded = ({ rowHeight, lineHeight }) => {
-  //   let diff = rowHeight - lineHeight
-  //   let i = 1
-
-  //   while (diff <= 0) {
-  //     const optimalLineHeight = i * rowHeight
-
-  //     if (optimalLineHeight >= lineHeight) {
-  //       return optimalLineHeight
-  //     } else {
-  //       i++
-  //     }
-  //   }
-  // }
-
-  const setInitialOverrides = () => {
-    if (global.state.verticalRhythmEnabled) {
-      const newContext = { ...global.state }
-      newContext.elementsActive.forEach(el => {
-        el.verticalRhythm.fontSize = el.style.fontSize
-        el.verticalRhythm.lineHeight = el.style.lineHeight
-        el.verticalRhythm.marginBottom = el.style.marginBottom
-        el.verticalRhythm.marginTop = el.style.marginTop
-      })
-
-      global.dispatch({ payload: newContext })
-    }
-  }
-
-  useEffect(setInitialOverrides, [global.state.verticalRhythmEnabled])
-
-  // const elementsActive = [...global.state.elementsActive]
-  // TODO: round up or down when determining whether we need another row for bottom margin
-  // global.state.elementsActive.forEach(activeEl => {
-  //   const totalLineHeightNeeded = numberOfRowsNeeded({
-  //     rowHeight: row,
-  //     lineHeight: lineHeight,
-  //   })
-  //   console.log(
-  //     numberOfItems,
-  //     item,
-  //     'fs',
-  //     fs,
-  //     'lineHeight',
-  //     lineHeight,
-  //     'totalLineHeightNeeded',
-  //     totalLineHeightNeeded,
-  //     'margin-bottom',
-  //     totalLineHeightNeeded - lineHeight + row
-  //   )
-  //   fs = Math.floor(scale * fs)
-  //   lh = Math.floor(lineHeight * fs)
-  // })
 
   // render
   return (
