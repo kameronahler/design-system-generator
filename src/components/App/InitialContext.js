@@ -38,6 +38,7 @@ export const INITIAL_CONTEXT = {
         lineHeight: null,
         marginBottom: null,
         marginTop: null,
+        scale: 1.5,
       },
     },
   ],
@@ -59,6 +60,7 @@ export const INITIAL_CONTEXT = {
         lineHeight: null,
         marginBottom: null,
         marginTop: null,
+        scale: 1.5,
       },
     },
     {
@@ -177,5 +179,5 @@ export const INITIAL_CONTEXT = {
     },
   ],
   fontsPossible: ['Loading...'],
-  verticalRhythmEnabled: false,
+  verticalRhythmEnabled: true,
 }

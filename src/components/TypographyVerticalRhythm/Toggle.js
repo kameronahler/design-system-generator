@@ -8,7 +8,7 @@ import useGetActiveElement from '../../customHooks/useGetActiveElement'
 export default function Toggle() {
   // state
   const global = useContext(Context)
-  const requiredElementPresent = useGetActiveElement({
+  const p = useGetActiveElement({
     global: global,
     element: 'p',
   })
@@ -21,57 +21,90 @@ export default function Toggle() {
   }
 
   // mount
-  const setInitialOverrides = () => {
-    if (global.state.verticalRhythmEnabled) {
-      const newContext = { ...global.state }
-      newContext.elementsActive.forEach(el => {
-        el.verticalRhythm.fontSize = el.style.fontSize
-        el.verticalRhythm.lineHeight = el.style.lineHeight
-        el.verticalRhythm.marginBottom = el.style.marginBottom
-        el.verticalRhythm.marginTop = el.style.marginTop
-      })
 
-      global.dispatch({ payload: newContext })
-    }
-  }
-
-  const numberOfRowsNeeded = ({ rowHeight, lineHeight }) => {
-    let diff = rowHeight - lineHeight
-    let i = 1
-
-    while (diff <= 0) {
-      const optimalLineHeight = i * rowHeight
-
-      if (optimalLineHeight >= lineHeight) {
-        return optimalLineHeight
-      } else {
-        i++
-      }
-    }
-  }
-
-  useEffect(setInitialOverrides, [global.state.verticalRhythmEnabled])
   useEffect(() => {
-    // TODO: round up or down when determining whether we need another row for bottom margin
-    global.state.elementsActive.forEach(activeEl => {
-      const row = activeEl.style.fontSize * activeEl.style.lineHeight
-      const scale = ''
-      const totalLineHeightNeeded = numberOfRowsNeeded({
-        rowHeight: row,
-        lineHeight: activeEl.style.lineHeight,
-      })
-      console.log(
-        activeEl.element,
-        `font-size: ${activeEl.style.fontSize}`,
-        `line-height: ${activeEl.style.lineHeight}`,
-        `margin-top: ${activeEl.style.marginTop}`,
-        `margin-bottom: ${
-          totalLineHeightNeeded - activeEl.style.lineHeight + row
-        }`,
-        `total lines needed: ${totalLineHeightNeeded}`
-      )
-    })
-  })
+    if (global.state.verticalRhythmEnabled) {
+      const orderedEls = [...global.state.elementsActive]
+
+      const initialPElementOverrides = () => {
+        const newContext = { ...global.state }
+        newContext.elementsActive.forEach(el => {
+          el.verticalRhythm.fontSize = el.style.fontSize
+          el.verticalRhythm.lineHeight = el.style.lineHeight
+        })
+
+        global.dispatch({ payload: newContext })
+      }
+      initialPElementOverrides()
+
+      const orderActiveElements = () => {
+        orderedEls.sort((a, b) => {
+          const first = parseInt(a.verticalRhythm.fontSize)
+          const second = parseInt(b.verticalRhythm.fontSize)
+          if (first > second) {
+            return 1
+          } else if (first < second) {
+            return -1
+          }
+          return 0
+        })
+
+        const pIndex = orderedEls.findIndex(item => item.element === 'p')
+
+        if (pIndex !== 0) {
+          let tempP = orderedEls.splice(pIndex, 1)
+          orderedEls.unshift(tempP[0])
+        }
+      }
+      orderActiveElements()
+
+      const applyStyles = () => {
+        const baseFontSize = parseInt(p.verticalRhythm.fontSize)
+        const lineHeight = parseFloat(p.verticalRhythm.lineHeight)
+        const baseRow = baseFontSize * lineHeight
+        const scale = p.verticalRhythm.scale
+
+        const marginBottomNeeded = textHeight => {
+          let i = 1
+          let remainder = i * baseRow - textHeight
+
+          while (remainder < 0) {
+            i++
+            remainder = i * baseRow - textHeight
+          }
+
+          return remainder !== 0 ? remainder : baseRow
+        }
+
+        document.documentElement.style.setProperty(
+          '--base-row-height',
+          baseRow + 'px'
+        )
+
+        orderedEls.forEach((el, i) => {
+          const fs = baseFontSize * scale ** i
+          const lh = fs * lineHeight
+          const mt = 0
+          const mb = marginBottomNeeded(lh)
+
+          // font size
+          el.verticalRhythm.fontSize = fs + 'px'
+
+          // lineheight
+          el.verticalRhythm.lineHeight = lh + 'px'
+
+          // margin bottom
+          el.verticalRhythm.marginBottom = mb + 'px'
+
+          // margin top
+          el.verticalRhythm.marginTop = mt + 'px'
+
+          console.log(el.verticalRhythm)
+        })
+      }
+      applyStyles()
+    }
+  }, [global.state.verticalRhythmEnabled])
 
   // render
   return (
@@ -79,7 +112,7 @@ export default function Toggle() {
       <input
         checked={global.state.verticalRhythmEnabled}
         className='typography-vertical-rhythm__input'
-        disabled={!requiredElementPresent}
+        disabled={!p}
         id='typography-vertical-rhythm-toggle'
         onChange={handleTogglerChange}
         type='checkbox'

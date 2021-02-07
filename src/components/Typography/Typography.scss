@@ -28,8 +28,8 @@
       &::after {
         background: repeating-linear-gradient(
           transparent,
-          transparent 23px,
-          #555 24px
+          transparent calc(var(--base-row-height) - 1px),
+          #555 var(--base-row-height)
         );
         bottom: 2rem;
         content: '';
