@@ -29,7 +29,7 @@ export default function TypographyVerticalRhythm() {
         {global.state.verticalRhythmEnabled ? (
           <div className='typography-vertical-rhythm__controls-group'>
             <BaseFontSize />
-            {/* <LineHeight /> */}
+            <LineHeight />
             {/* <Scale /> */}
           </div>
         ) : null}

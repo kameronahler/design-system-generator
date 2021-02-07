@@ -3,28 +3,22 @@ import React, { useContext, useState } from 'react'
 
 // components
 import { Context } from '../App/App'
+import useGetActiveElement from '../../customHooks/useGetActiveElement'
+import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 
 export default function LineHeight() {
   // state
   const global = useContext(Context)
-
-  const [lineHeight, setLineHeight] = useState(
-    global.state.verticalRhythm.lineHeight
-  )
+  const [lineHeight, setLineHeight] = useState(() => {
+    const p = useGetActiveElement({ global: global, element: 'p' })
+    return p.style.lineHeight
+  })
 
   // handlers
-  const handleLineHeightBlur = e => {
-    const newEntry = {
-      ...global.state.verticalRhythm,
-      lineHeight: e.currentTarget.value,
-    }
-
-    const newContext = {
-      ...global.state,
-      verticalRhythm: newEntry,
-    }
-
-    global.dispatch({ payload: newContext })
+  const handleLineHeightBlur = () => {
+    const newEntry = useGetActiveElement({ global: global, element: 'p' })
+    newEntry.verticalRhythm.lineHeight = lineHeight
+    useUpdateActiveElement({ global, newEntry })
   }
 
   // render
@@ -41,7 +35,7 @@ export default function LineHeight() {
         id='typography-vertical-rhythm-line-height'
         onBlur={handleLineHeightBlur}
         onChange={e => {
-          setLineHeight(e.currentTarget.currentValue)
+          setLineHeight(e.currentTarget.value)
         }}
         step='.05'
         type='number'
