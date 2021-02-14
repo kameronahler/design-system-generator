@@ -9,7 +9,7 @@ import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 export default function BaseFontSize() {
   // state
   const global = useContext(Context)
-  const [baseFontSize, setBaseFontSize] = useState(() => {
+  const [displayValue, setDisplayValue] = useState(() => {
     const p = useGetActiveElement({ global: global, element: 'p' })
     return parseInt(p.style.fontSize)
   })
@@ -17,7 +17,7 @@ export default function BaseFontSize() {
   // handlers
   const handleSizeBlur = e => {
     const newEntry = useGetActiveElement({ global: global, element: 'p' })
-    newEntry.verticalRhythm.fontSize = `${baseFontSize}px`
+    newEntry.verticalRhythm.fontSize = `${displayValue}px`
     useUpdateActiveElement({ global, newEntry })
   }
 
@@ -35,10 +35,10 @@ export default function BaseFontSize() {
         id='typography-vertical-rhythm-size'
         onBlur={handleSizeBlur}
         onChange={e => {
-          setBaseFontSize(parseInt(e.currentTarget.value))
+          setDisplayValue(parseInt(e.currentTarget.value))
         }}
         type='number'
-        value={baseFontSize}
+        value={displayValue}
       />
     </div>
   )
