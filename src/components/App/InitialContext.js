@@ -3,25 +3,6 @@ export const INITIAL_CONTEXT = {
   elementsPossible: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
   elementsActive: [
     {
-      element: 'h1',
-      style: {
-        color: '#fff',
-        fontFamily: 'sans-serif',
-        fontSize: '48px',
-        fontWeight: 'regular',
-        lineHeight: '1.2',
-        marginBottom: '0',
-        marginTop: '0',
-      },
-      text: 'Lorem ipsum dolor sit amet',
-      verticalRhythm: {
-        fontSize: null,
-        lineHeight: null,
-        marginBottom: null,
-        marginTop: null,
-      },
-    },
-    {
       element: 'p',
       style: {
         color: '#fff',
@@ -39,6 +20,25 @@ export const INITIAL_CONTEXT = {
         marginBottom: null,
         marginTop: null,
         scale: 1.5,
+      },
+    },
+    {
+      element: 'h1',
+      style: {
+        color: '#fff',
+        fontFamily: 'sans-serif',
+        fontSize: '48px',
+        fontWeight: 'regular',
+        lineHeight: '1.2',
+        marginBottom: '0',
+        marginTop: '0',
+      },
+      text: 'Lorem ipsum dolor sit amet',
+      verticalRhythm: {
+        fontSize: null,
+        lineHeight: null,
+        marginBottom: null,
+        marginTop: null,
       },
     },
   ],
@@ -179,5 +179,5 @@ export const INITIAL_CONTEXT = {
     },
   ],
   fontsPossible: ['Loading...'],
-  verticalRhythmEnabled: true,
+  verticalRhythmEnabled: false,
 }

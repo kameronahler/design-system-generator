@@ -10,7 +10,9 @@ export default function FontSize({ props }) {
   // state
   const global = useContext(Context)
   const [displayValue, setDisplayValue] = useState(
-    parseInt(props.style.fontSize)
+    global.state.verticalRhythmEnabled
+      ? parseInt(props.verticalRhythm.fontSize)
+      : parseInt(props.style.fontSize)
   )
 
   // handlers

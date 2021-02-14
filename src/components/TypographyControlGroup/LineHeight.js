@@ -9,7 +9,11 @@ import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 export default function LineHeight({ props }) {
   // state
   const global = useContext(Context)
-  const [displayValue, setDisplayValue] = useState(props.style.lineHeight)
+  const [displayValue, setDisplayValue] = useState(
+    global.state.verticalRhythmEnabled
+      ? props.verticalRhythm.lineHeight
+      : props.style.lineHeight
+  )
 
   // handlers
   const handleLineHeightChange = e => {

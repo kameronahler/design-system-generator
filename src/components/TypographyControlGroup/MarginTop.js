@@ -9,7 +9,11 @@ import useUpdateActiveElement from '../../customHooks/useUpdateActiveElement'
 export default function MarginTop({ props }) {
   // state
   const global = useContext(Context)
-  const [displayValue, setDisplayValue] = useState(props.style.marginTop)
+  const [displayValue, setDisplayValue] = useState(
+    global.state.verticalRhythmEnabled
+      ? parseInt(props.verticalRhythm.marginTop)
+      : parseInt(props.style.marginTop)
+  )
 
   // handlers
   const handleMarginChange = e => {
